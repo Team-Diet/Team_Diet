@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.diet.mapper.UserMapper">
+
+  <select id="login" resultType="UserVO">
+  
+  select dtid, pw, name from diet_member where dtid = #{dtid, jdbcType=VARCHAR} and pw = #{pw, jdbcType=VARCHAR}
+  
+  </select>
+  
+  <update id="keepLogin" >
+  update diet_member set sessionKey = #{sessionId}, sessionLimit = #{next} where dtid = #{dtid}
+  </update>
+
+	<select id="checkUserWithSessionKey" resultType="UserVO">
+	select * from diet_member where sessionKey = #{value}  and sessionlimit > now()
+	</select>	
+
+	<insert id="joinmember">
+		insert into diet_member(userno, dtid, pw, name, tall, weight, address, email, phone)
+		values(diet_user_seq.nextval, #{dtid},#{pw},#{name},#{tall},#{weight},#{address},#{email},#{phone})
+	</insert>
+</mapper>
+
+

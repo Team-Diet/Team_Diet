@@ -24,7 +24,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 
 		ModelMap modelMap = modelAndView.getModelMap();
 		Object userVO = modelMap.get("userVO");
-
+		System.out.println("checking1");
 		if (userVO != null) {
 			System.out.println("success login");
 			logger.info("new login success");

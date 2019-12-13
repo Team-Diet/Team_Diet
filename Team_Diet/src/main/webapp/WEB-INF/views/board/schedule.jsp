@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +15,9 @@
 </head>
 <!-- style="background-color:black;" -->
 <body>
+<%@include file="../header.jsp"%>
   <div class="container" >
+  
     <header>
 
       <h1>Header</h1>

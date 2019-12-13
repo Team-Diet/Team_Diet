@@ -22,10 +22,10 @@ public class UserServiceImpl implements UserService {
   }
   
   @Override
-  public void keepLogin(String mallid, String sessionId, Date next)
+  public void keepLogin(String dtid, String sessionId, Date next)
       throws Exception {
     
-    dao.keepLogin(mallid, sessionId, next);
+    dao.keepLogin(dtid, sessionId, next);
     
   }
 

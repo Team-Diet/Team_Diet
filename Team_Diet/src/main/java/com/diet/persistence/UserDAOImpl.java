@@ -17,7 +17,7 @@ public class UserDAOImpl implements UserDAO {
 	@Inject
 	private SqlSession session;
 	
-	private static String namespace ="com.ty.mapper.UserMapper";	
+	private static String namespace ="com.diet.mapper.UserMapper";	
 
 	@Override
 	public UserVO login(LoginDTO dto) throws Exception {
@@ -26,10 +26,10 @@ public class UserDAOImpl implements UserDAO {
 	}
 	
   @Override
-  public void keepLogin(String mallid, String sessionId, Date next) {
+  public void keepLogin(String dtid, String sessionId, Date next) {
 
     Map<String, Object> paramMap = new HashMap<String, Object>();
-    paramMap.put("mallid", mallid);
+    paramMap.put("dtid", dtid);
     paramMap.put("sessionId", sessionId);
     paramMap.put("next", next);
     

@@ -2,23 +2,22 @@ package com.diet.dto;
 
 public class LoginDTO {
 	
-	private String mallid;
-	private String pwd;
+	private String dtid;
+	private String pw;
 	private boolean useCookie;
 
-
 	
-	public String getMallid() {
-		return mallid;
+	public String getDtid() {
+		return dtid;
 	}
-	public void setMallid(String mallid) {
-		this.mallid = mallid;
+	public void setDtid(String dtid) {
+		this.dtid = dtid;
 	}
-	public String getPwd() {
-		return pwd;
+	public String getPw() {
+		return pw;
 	}
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
+	public void setPw(String pw) {
+		this.pw = pw;
 	}
 	public boolean isUseCookie() {
 		return useCookie;
@@ -28,8 +27,9 @@ public class LoginDTO {
 	}
 	@Override
 	public String toString() {
-		return "LoginDTO [mallid=" + mallid + ", pwd=" + pwd + ", useCookie=" + useCookie + "]";
+		return "LoginDTO [dtid=" + dtid + ", pw=" + pw + ", useCookie=" + useCookie + "]";
 	}
+
 	
 	
 	
