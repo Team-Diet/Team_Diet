@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,11 +10,12 @@
   <link rel="stylesheet" href="resources/css/style.css">
   <link href="resources/css/modal.css" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Gamja+Flower&display=swap" rel="stylesheet">
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Gamja+Flower&display=swap" rel="stylesheet">
 </head>
 
 <body>
+<%@include file="../views/header.jsp"%>
   <header class="bg-mistyrose bg-text-white head">
     <div class="container text-center">
       <div id="js-clock" style="padding:25px">
@@ -22,7 +24,7 @@
     </div>
   </header>
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-black" id="mainNav">
+<!--   <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-black" id="mainNav">
     <div class="container">
       <a class="navbar-brand js-scroll-trigger"style="font-size:35px;" href="#page-top">Document</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
@@ -43,7 +45,7 @@
         </ul>
       </div>
     </div>
-  </nav>
+  </nav> -->
   <!-- <img src="KakaoTalk_20191212_092336193.jpg" id="bg" alt=""> -->
 
   <div class="container" style="padding-top:50px;">

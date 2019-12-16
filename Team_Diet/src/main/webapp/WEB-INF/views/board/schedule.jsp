@@ -1,62 +1,50 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <link rel="stylesheet" type="text/css" href="/resources/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/resources/css/bootstrap.min.css" >
-  <link rel="stylesheet" type="text/css" href="/resources/css/pe-icon-7-stroke.css" >
-  <link rel="stylesheet" type="text/css" href="/resources/css/modal.css" >
-  <script type="text/javascript" src="/resources/js/chart/Chart.bundle.min.js"></script>
-	<script type="text/javascript" src="/resources/js/chart/Chart.min.js"></script>
+  <link rel="stylesheet" href="resources/css/style.css">
+  <link href="resources/css/modal.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Gamja+Flower&display=swap" rel="stylesheet">
 </head>
+
 <!-- style="background-color:black;" -->
 <body>
 <%@include file="../header.jsp"%>
-  <div class="container" >
-  
-    <header>
-
-      <h1>Header</h1>
-
-    </header>
-    <!-- 여기부터 바디 시작 -->
-    <div class="content">
-		<div style="top:30px;width:900px;height:30px;font-size:20px;">Graph Name(To Month)
-			<canvas id="lineChart" width="890" height="400"></canvas>
-    	</div>
-   	</div>
-   	<div class="content" style="margin-top:430px;height:500px;">
-		<div style="width:900px;height:30px;font-size:20px;">Graph Name(To Today)
-			<canvas id="pieChart" width="890" height="400"></canvas>
-			</div>
-   	</div>
-   	<div class="content" style="margin-top:30px;height:500px;">
-		<div style="width:900px;height:30px;font-size:20px;">Graph Name(Day by Day)
-			<canvas id="barChart" width="890" height="400"></canvas>
-		</div>
-   	</div>
-    
-	<!-- 여기까지 바디 -->
-    <div class="sidebar" style="position:absolute;">
-      <div>
-        <h2>Menu</h2>
-        <ul id="sidelist">
-          <li class="list-group-item"><a href="#">Home</a></li>
-          <li class="list-group-item"><a href="#">Calendar</a></li>
-          <li class="list-group-item"><a href="#">Hello</a></li>
-          <li class="list-group-item"><a href="#">JavaScript</a></li>
-          <li class="list-group-item"><a href="#">Copyright</a></li>
-        </ul>
+  <header class="bg-mistyrose bg-text-white head">
+    <div class="container text-center">
+      <div id="js-clock" style="padding:25px">
+        <span>00:00</span>
       </div>
     </div>
+  </header>
+
+    <!-- 여기부터 바디 시작 -->
+      <div class="container" style="padding-top:50px; padding-bottom:50px">
+    <div class="container-fluid">
+
+		<div class="col-12 col-xs-12 col-sm-12 col-md-12">Graph Name(To Month)
+			<canvas id="lineChart"></canvas>
+    	</div>
+		<div class="col-12 col-xs-12 col-sm-12 col-md-12">Graph Name(To Today)
+			<canvas id="pieChart"></canvas>
+			</div>
+		<div class="col-12 col-xs-12 col-sm-12 col-md-12">Graph Name(Day by Day)
+			<canvas id="barChart"></canvas>
+   	</div>
+    </div>
+    </div>
+	<!-- 여기까지 바디 -->
+
     <div id="footer">
       <p>Copyright</p>
     </div>
-  </div>
 
   <div class="modal fade" id="productModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -74,12 +62,44 @@
       </div>
     </div>
   </div>
+<!-- Footer -->
+  <footer class="py-4 bg-black">
+    <div class="container">
+                    <!--날씨-->
+                    <div class="container-fluid text-right text-white">
+                          <div style="display: -webkit-inline-box;">
+                            <img id=wImg src="" />
+                            <div>
+                              <div>
+                                <span class="place"></span>
+                                <span class="temperature"></span>
+                                <span class="description"></span>
+                              </div>
+                              <span class="min-temp"></span>
+                              <span>/</span>
+                              <span class="max-temp"></span>
+                            </div>
+                          </div>
+                      </div>
+                      <!--/날씨-->
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+    </div>
+    <!-- /.container -->
+  </footer>
 
-
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script src="/resources/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
   <script src="/resources/js/clock.js"></script>
   <script src="/resources/js/weather.js"></script>
+  <script type="text/javascript" src="/resources/js/chart/Chart.bundle.min.js"></script>
+  <script type="text/javascript" src="/resources/js/chart/Chart.min.js"></script>
   	<script>
 	var line = document.getElementById('lineChart');
 	var pie = document.getElementById('pieChart');
@@ -111,7 +131,6 @@
             }]
 		},
 		options: {
-			responsive: false,
 			scales: {
 				yAxes: [{
 					ticks: {
