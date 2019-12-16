@@ -26,10 +26,10 @@ public class UserDAOImpl implements UserDAO {
 	}
 	
   @Override
-  public void keepLogin(String dtid, String sessionId, Date next) {
+  public void keepLogin(String id, String sessionId, Date next) {
 
     Map<String, Object> paramMap = new HashMap<String, Object>();
-    paramMap.put("dtid", dtid);
+    paramMap.put("dtid", id);
     paramMap.put("sessionId", sessionId);
     paramMap.put("next", next);
     

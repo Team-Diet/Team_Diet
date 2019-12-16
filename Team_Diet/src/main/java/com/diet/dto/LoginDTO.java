@@ -2,16 +2,16 @@ package com.diet.dto;
 
 public class LoginDTO {
 	
-	private String dtid;
+	private String id;
 	private String pw;
 	private boolean useCookie;
 
 	
-	public String getDtid() {
-		return dtid;
+	public String getId() {
+		return id;
 	}
-	public void setDtid(String dtid) {
-		this.dtid = dtid;
+	public void setId(String id) {
+		this.id = id;
 	}
 	public String getPw() {
 		return pw;
@@ -27,7 +27,7 @@ public class LoginDTO {
 	}
 	@Override
 	public String toString() {
-		return "LoginDTO [dtid=" + dtid + ", pw=" + pw + ", useCookie=" + useCookie + "]";
+		return "LoginDTO [id=" + id + ", pw=" + pw + ", useCookie=" + useCookie + "]";
 	}
 
 	

@@ -7,12 +7,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
   <select id="login" resultType="UserVO">
   
-  select dtid, pw, name from diet_member where dtid = #{dtid, jdbcType=VARCHAR} and pw = #{pw, jdbcType=VARCHAR}
+  select id, pw, name from diet_member where id = #{id, jdbcType=VARCHAR} and pw = #{pw, jdbcType=VARCHAR}
   
   </select>
   
   <update id="keepLogin" >
-  update diet_member set sessionKey = #{sessionId}, sessionLimit = #{next} where dtid = #{dtid}
+  update diet_member set sessionKey = #{sessionId}, sessionLimit = #{next} where id = #{dtid}
   </update>
 
 	<select id="checkUserWithSessionKey" resultType="UserVO">
@@ -20,8 +20,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>	
 
 	<insert id="joinmember">
-		insert into diet_member(userno, dtid, pw, name, tall, weight, address, email, phone)
-		values(diet_user_seq.nextval, #{dtid},#{pw},#{name},#{tall},#{weight},#{address},#{email},#{phone})
+		insert into diet_member(userno, id, pw, name, tall, weight, address, email, phone)
+		values(diet_user_seq.nextval, #{id},#{pw},#{name},#{tall},#{weight},#{address},#{email},#{phone})
 	</insert>
 </mapper>
 
