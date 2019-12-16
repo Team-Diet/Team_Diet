@@ -1,111 +1,65 @@
-div{
-    background-color: #fff;
-    display: block;
+a{
+  text-decoration:none !important;
+}
+html {
+  position: relative;
+  min-height: 100%;
+  margin: 0;
+  
+}
+body {
+  min-height: 100%;
+  font-family: 'Gamja Flower', cursive!important;
+}
+footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 15px 0;
+  text-align: center;
 }
 li{
-    list-style: none;
-    margin-left: auto;
-    margin-right: auto;
     padding: 5px 0px 5px 5px;
     margin-bottom: 5px;
-    border-bottom: 1px solid #bcbcbc;
-    font-size: 12px;
+    font-size: 20px;
 }
 ul{
     text-align: center;
     margin-left: auto;
-    margin-right: auto;
     padding:0px;
 }
-header {
-  margin: 0px auto;
-  padding: 20px;
-  width:1080px;
-  height: 200px;
-  text-align: center;
-  border: 1px solid #bcbcbc;
-  background-image: url("01.jpg");
-}
-.wrap {
-    position: relative;
-    overflow: hidden;
-    background: #f2f4f7;
-}
-.container {
-    width: 1080px;
-    height: 600px;
-    margin: 0px auto;
-    padding-top: 20px;
-    position:relative;
-    text-align:center;
-  }
-  .hImg{
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width:1080px;
-  }
 
-
+.bg-black{
+  background-color: black!important;
+}
   .content {
-    width: 880px;
     margin-bottom: 20px;
     float: right;
   }
-  .sidebar {
-    width: 200px;
-    height: 100%;
-    margin-bottom: 20px;
-    float: left;
-    text-align: center;
-    background: whitesmoke;
-  }
-  .sidebar ul li a{
-    display: block;
-  }
-  .fl{
-    display: inline-flex;
-  }
   .lr{
     border:1px solid #bcbcbc;
-    width:350px;
-    height:auto;
     padding:20px;
     margin: 10px;
-  }
-  .weather{
-    padding-top: 35px;
-    padding-left: 50px;
-  }
-  .place{
-    font-size: 30px;
-  }
-  .temperature{
-    font-size: 30px;
-  }
-  .description{
-    font-size: 30px;
+    background-color:white;
   }
   .min-temp{
-    font-size: 30px;
+    font-size: 12px;
     color:blue;
   }
   .max-temp{
-    font-size: 30px;
+    font-size: 12px;
     color:red;
   }
+  .head{
+    padding-top:60px;
+    background-color: mistyrose;
+    height: 200px;
+    text-align: center;
+    font-size:50px;
+  }
   
-  #wImg{
-    overflow: hidden;
-    align-items: center;
-    justify-content: center;
-    width:250px;
-    height :250px;
-  }
-  #footer {
-    clear: both;
-    width : 1080px;
-    padding: 20px;
-    border: 1px solid #bcbcbc;
-  }
+  /* .content {
+    min-height: calc(100vh - 20px);
+  } */
+

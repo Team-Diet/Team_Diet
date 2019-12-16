@@ -39,7 +39,7 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "board/schedule";
+		return "index";
 	}
 	
 }

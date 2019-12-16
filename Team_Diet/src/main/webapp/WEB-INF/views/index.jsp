@@ -6,87 +6,186 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <link rel="stylesheet" type="text/css" href="/resources/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/resources/css/bootstrap.min.css" >
-  <link rel="stylesheet" type="text/css" href="/resources/css/pe-icon-7-stroke.css" >
-  <link rel="stylesheet" type="text/css" href="/resources/css/modal.css" >
+  <link rel="stylesheet" href="resources/css/style.css">
+  <link href="resources/css/modal.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Gamja+Flower&display=swap" rel="stylesheet">
 </head>
-<!-- style="background-color:black;" -->
+
 <body>
-  <div class="container" >
-    <header>
-
-      <h1>Header</h1>
-
-    </header>
-    <div class="content">
-      <h2>Content</h2>
-      <div class="js-clock">
-        <h1>00:00</h1>
+  <header class="bg-mistyrose bg-text-white head">
+    <div class="container text-center">
+      <div id="js-clock" style="padding:25px">
+        <span>00:00</span>
       </div>
-      <div style="display: -webkit-inline-box;">
-        <div>
-        <img id=wImg src="" />
-      </div>
-        <div class="weather">
-        <div class="place"></div>
-        <div class="temperature"></div>
-        <div class="description"></div>
-        <span class="min-temp"></span>
-        <span>/</span>
-        <span class="max-temp"></span>
-      </div>
-      </div>
-      <div class="fl">
-        <div class="lr">
-          <div class="user">
-            <a href="#" data-toggle="modal" data-target="#productModal">modal</a>
-          </div>
-        </div>
-        <div class="lr">
-          <p>456</p>
-        </div>
-      </div> 
     </div>
-    <div class="sidebar">
-      <div>
-        <h2>Menu</h2>
-        <ul id="sidelist">
-          <li class="list-group-item"><a href="#">Home</a></li>
-          <li class="list-group-item"><a href="#">Calendar</a></li>
-          <li class="list-group-item"><a href="#">Hello</a></li>
-          <li class="list-group-item"><a href="#">JavaScript</a></li>
-          <li class="list-group-item"><a href="#">Copyright</a></li>
+  </header>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-black" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger"style="font-size:35px;" href="#page-top">Document</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto ">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#Home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#Calendar">Calendar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#Board">Board</a>
+          </li>
         </ul>
       </div>
     </div>
-    <div id="footer">
-      <p>Copyright</p>
-    </div>
-  </div>
+  </nav>
+  <!-- <img src="KakaoTalk_20191212_092336193.jpg" id="bg" alt=""> -->
 
-  <div class="modal fade" id="productModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">x</span>
-      </button>
-      <div class="modal-body">
-        <div class="social">
-          <a href="https://www.facebook.com/devitems/?ref=bookmarks"><i class="fa fa-facebook"></i></a> <a
-            href="https://twitter.com/devitemsllc"><i class="fa fa-twitter"></i></a> <a
-            href="https://www.google.com/"><i class="fa fa-google-plus"></i></a> <a href="https://www.instagram.com/"><i
-              class="fa fa-instagram"></i></a> <a href="https://www.pinterest.com/devitemsllc/"><i
-              class="fa fa-pinterest"></i></a>
+  <div class="container" style="padding-top:50px;">
+      <div class="container-fluid">
+        <div class="row text-center">
+          <div class="col-6 col-xs-6 col-sm-6 col-md-6"style="font-size:25px;">
+            My
+          </div>
+          <div class="col-6 col-xs-6 col-sm-6 col-md-6"style="font-size:25px;">
+            Friend
+          </div>
+            <!-- <script src="bootstrap.min.js"></script> -->
+          </div>
+        </div>
+      </div>
+
+  <!--Chart-->
+  <div class="container" style="padding-top:50px; padding-bottom:50px">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-6 col-xs-6 col-sm-6 col-md-6">
+                <canvas id="myChart">
+            </canvas>
+        </div>
+        <div class="col-6 col-xs-6 col-sm-6 col-md-6">
+                <canvas id="yourChart">
+                </canvas>
+        </div>
+          <!-- <script src="bootstrap.min.js"></script> -->
         </div>
       </div>
     </div>
+    <div class="container" style="padding-top:50px; padding-bottom:50px">
+      <div class="container-fluid text-center">
+          <div class="d-inline-flex shadow-sm lr col-5 col-xs-5 col-sm-5 col-md-5">
+            <a href="#" data-toggle="modal" data-target="#modal">modal</a>
+          </div>
+          <div class="d-inline-flex shadow-sm lr col-5 col-xs-5 col-sm-5 col-md-5">
+            <a href="#" data-toggle="modal" data-target="#modal">modal</a>
+          </div>
+      </div>
+    </div>
+
+  <!-- Footer -->
+  <footer class="py-4 bg-black">
+    <div class="container">
+                    <!--날씨-->
+                    <div class="container-fluid text-right text-white">
+                          <div style="display: -webkit-inline-box;">
+                            <img id=wImg src="" />
+                            <div>
+                              <div>
+                                <span class="place"></span>
+                                <span class="temperature"></span>
+                                <span class="description"></span>
+                              </div>
+                              <span class="min-temp"></span>
+                              <span>/</span>
+                              <span class="max-temp"></span>
+                            </div>
+                          </div>
+                      </div>
+                      <!--/날씨-->
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="modal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Modal Header</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
   </div>
 
 
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script src="/resources/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
   <script src="/resources/js/clock.js"></script>
   <script src="/resources/js/weather.js"></script>
+  <script type="text/javascript" src="/resources/js/chart/Chart.bundle.min.js"></script>
+  <script type="text/javascript" src="/resources/js/chart/Chart.min.js"></script>
+  <script>
+    var ctx = document.getElementById('yourChart');
+    var youChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        datasets: [{
+          data: [1000, 800],
+          backgroundColor: [
+            "#FF6384",
+            "#36A2EB"
+          ],
+          hoverBackgroundColor: [
+            "#FF6384",
+            "#36A2EB"
+          ]
+        }]
+      }
+    });
+  </script>
+    <script>
+        var ctx = document.getElementById('myChart');
+        var myChart = new Chart(ctx, {
+          type: 'pie',
+          data: {
+            datasets: [{
+              data: [1000, 800],
+              backgroundColor: [
+                "#FF6384",
+                "#36A2EB"
+              ],
+              hoverBackgroundColor: [
+                "#FF6384",
+                "#36A2EB"
+              ]
+            }]
+          }
+        });
+      </script>
 </body>
 
 </html>
