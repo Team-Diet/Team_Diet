@@ -16,6 +16,8 @@
 
 <body>
 <%@include file="../views/header.jsp"%>
+<%@include file="../views/footer.jsp"%>
+
   <header class="bg-mistyrose bg-text-white head">
     <div class="container text-center">
       <div id="js-clock" style="padding:25px">
@@ -23,31 +25,7 @@
       </div>
     </div>
   </header>
-  <!-- Navigation -->
-<!--   <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-black" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand js-scroll-trigger"style="font-size:35px;" href="#page-top">Document</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto ">
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#Home">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#Calendar">Calendar</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#Board">Board</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav> -->
-  <!-- <img src="KakaoTalk_20191212_092336193.jpg" id="bg" alt=""> -->
-
+<div class="wrap">
   <div class="container" style="padding-top:50px;">
       <div class="container-fluid">
         <div class="row text-center">
@@ -63,7 +41,7 @@
       </div>
 
   <!--Chart-->
-  <div class="container" style="padding-top:50px; padding-bottom:50px">
+  <div class="container" style="padding-top:50px;">
     <div class="container-fluid">
       <div class="row">
         <div class="col-6 col-xs-6 col-sm-6 col-md-6">
@@ -88,11 +66,11 @@
           </div>
       </div>
     </div>
-
+</div>
   <!-- Footer -->
-  <footer class="py-4 bg-black">
+<!--   <footer class="py-4 bg-black">
     <div class="container">
-                    <!--날씨-->
+                    날씨
                     <div class="container-fluid text-right text-white">
                           <div style="display: -webkit-inline-box;">
                             <img id=wImg src="" />
@@ -108,11 +86,10 @@
                             </div>
                           </div>
                       </div>
-                      <!--/날씨-->
+                      /날씨
       <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
     </div>
-    <!-- /.container -->
-  </footer>
+  </footer> -->
 
 
   <!-- Modal -->

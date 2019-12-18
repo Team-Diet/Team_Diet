@@ -22,6 +22,7 @@
 
 <body>
 	<%@include file="../header.jsp"%>
+	<%@include file="../footer.jsp"%>
 	<header class="bg-mistyrose bg-text-white head">
 		<div class="container text-center">
 			<div id="js-clock" style="padding: 25px">
@@ -29,6 +30,7 @@
 			</div>
 		</div>
 	</header>
+	<div class="wrap">
 	<div class="container" style="padding-top: 50px; padding-bottom: 50px">
 		<div class="container-fluid">
 			<div class="table-responsive text-center">
@@ -92,29 +94,7 @@
 			</div>
 		</div>
 	</div>
-	<!-- Footer -->
-	<footer class="py-4 bg-black">
-		<div class="container">
-			<!--날씨-->
-			<div class="container-fluid text-right text-white">
-				<div style="display: -webkit-inline-box;">
-					<img id=wImg src="" />
-					<div>
-						<div>
-							<span class="place"></span> <span class="temperature"></span> <span
-								class="description"></span>
-						</div>
-						<span class="min-temp"></span> <span>/</span> <span
-							class="max-temp"></span>
-					</div>
-				</div>
-			</div>
-			<!--/날씨-->
-			<p class="m-0 text-center text-white">Copyright &copy; Your
-				Website 2019</p>
-		</div>
-		<!-- /.container  -->
-	</footer>
+	</div>
 
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
 		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"

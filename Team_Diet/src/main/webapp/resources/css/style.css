@@ -30,6 +30,12 @@ ul{
     padding:0px;
 }
 
+.wrap{
+min-height: 100%;
+position: relative;
+padding-bottom: 122px; /* footer height */
+}
+
 .bg-black{
   background-color: black!important;
 }
