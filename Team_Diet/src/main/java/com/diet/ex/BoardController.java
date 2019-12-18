@@ -63,6 +63,11 @@ public class BoardController {
 		logger.info("show all list......................");
 		model.addAttribute("list", service.listAll());
 	}
+	@RequestMapping(value = "/schedule", method = RequestMethod.GET)
+	public void schedule(Model model) throws Exception {
+		logger.info("show schedule......................");
+		model.addAttribute("schedule", service.listAll());
+	}
 
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
 	public void read(@RequestParam("bno") int bno, Model model) throws Exception {

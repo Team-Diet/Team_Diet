@@ -11,7 +11,7 @@
 <body>
    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-black" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger"style="font-size:35px;" href="/">Document</a>
+      <a class="navbar-brand js-scroll-trigger"style="font-size:35px;" href="/">Logo-img</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -21,7 +21,7 @@
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
 						href="/">HOME</a></li>
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#Calendar">CALENDAR</a></li>
+						href="/board/schedule">SCHEDULE</a></li>
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
 						href="/board/list">BOARD</a></li>
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
