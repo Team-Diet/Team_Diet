@@ -7,8 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Board</title>
-<link rel="stylesheet" href="resources/css/style.css">
-<link href="resources/css/modal.css" rel="stylesheet">
+<link rel="stylesheet" href="/resources/css/style.css">
+<link href="/resources/css/modal.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
@@ -46,15 +46,17 @@
 						</tr>
 					</thead>
 					<tbody>
+					<c:forEach items="${list}" var="list">
 						<tr>
-							<th scope="row">1</th>
-							<td>1</td>
-							<td>1</td>
-							<td>1</td>
-							<td>1</td>
-							<td>1</td>
+							<th scope="row">${list.boardNo }</th>
+							<td>${list.title }</td>
+							<td>${list.content }</td>
+							<td>${list.writer }</td>
+							<td>${list.writeDate }</td>
+							<td>${list.bHit }</td>
 						</tr>
-						<tr>
+					</c:forEach>
+<!-- 						<tr>
 							<th scope="row">2</th>
 							<td>2</td>
 							<td>2</td>
@@ -69,7 +71,7 @@
 							<td>3</td>
 							<td>3</td>
 							<td>3</td>
-						</tr>
+						</tr> -->
 					</tbody>
 				</table>
 				<hr />

@@ -11,7 +11,7 @@
 <body>
    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-black" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger"style="font-size:35px;" href="#page-top">Document</a>
+      <a class="navbar-brand js-scroll-trigger"style="font-size:35px;" href="/">Document</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -19,18 +19,11 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto ">
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#Home">HOME</a></li>
+						href="/">HOME</a></li>
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
 						href="#Calendar">CALENDAR</a></li>
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#Board">BOARD</a></li>
-					<li class="nav-item">
-						<form name="form" action="/order/orderlist" method="get">
-							<input type="hidden" name="dtid" value="${login.dtid }">
-							<a class="nav-link js-scroll-trigger"
-								href="javascript:form.submit();">ORDER</a>
-						</form>
-					</li>
+						href="/board/list">BOARD</a></li>
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
 						href="/user/mypage?id=${login.dtid }">MY PAGE</a></li>
 					<c:if test="${login.dtid==null }">
