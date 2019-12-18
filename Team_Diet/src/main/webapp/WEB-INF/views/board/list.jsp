@@ -18,7 +18,7 @@
 	rel="stylesheet">
 </head>
 
-<!-- style="background-color:black;" -->
+<!-- " -->
 
 <body>
 	<%@include file="../header.jsp"%>
@@ -33,8 +33,8 @@
 		<div class="container-fluid">
 			<div class="table-responsive text-center">
 				<table class="table table-hover">
-					<thead class="thead-dark">
-						<tr scope="col">
+					<thead style="background-color:black;">
+						<tr scope="col" style="color:white;">
 							<th scope="col">No</th>
 							<th scope="col">Title</th>
 							<th scope="col">Content</th>
@@ -59,6 +59,14 @@
 							<td>2</td>
 							<td>2</td>
 							<td>2</td>
+						</tr>
+						<tr>
+							<th scope="row">3</th>
+							<td>3</td>
+							<td>3</td>
+							<td>3</td>
+							<td>3</td>
+							<td>3</td>
 						</tr>
 					</tbody>
 				</table>
@@ -105,7 +113,7 @@
 			<p class="m-0 text-center text-white">Copyright &copy; Your
 				Website 2019</p>
 		</div>
-		<!-- /.container -->
+		<!-- /.container  -->
 	</footer>
 
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
