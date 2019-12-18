@@ -101,9 +101,15 @@
   <script type="text/javascript" src="/resources/js/chart/Chart.bundle.min.js"></script>
   <script type="text/javascript" src="/resources/js/chart/Chart.min.js"></script>
   	<script>
-	var line = document.getElementById('lineChart');
-	var pie = document.getElementById('pieChart');
-	var bar = document.getElementById('barChart');
+	var line = document.getElementById('lineChart'); //월별 비교
+	var pie = document.getElementById('pieChart'); // 일별 기초대사량 대비 섭취 칼로리 비교
+	var bar = document.getElementById('barChart'); // 주별 비교
+	//기초대사량 구하는 공식 = 
+	//남자 : 66.47+(13.75*체중)+(5*키)-(6.76*나이)
+	//여자 : 655.1+(9.56*체중)+(1.85*키)-(4.68*나이)
+	var daycal_eat=200;
+	var daycal_total=1000;
+	var daycal_cal=daycal_total-daycal_eat;
 	var lineChart = new Chart(line, {
 		type: 'line',
 		data: {
@@ -144,7 +150,7 @@
 		type: 'pie',
 		data: {
 			datasets: [{
-				data: [1000,800],
+				data: [daycal_cal,daycal_eat],
 				backgroundColor:[
 					"#FF6384",
 					"#36A2EB"
