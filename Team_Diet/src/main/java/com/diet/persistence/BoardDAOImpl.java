@@ -21,11 +21,13 @@ public class BoardDAOImpl implements BoardDAO {
 
 	private static String namespace = "com.diet.mapper.boardMapper";
 
+	// 글작성
 	@Override
 	public void create(BoardVO vo) throws Exception {
 		session.insert(namespace + ".create", vo);
 	}
-
+	
+	// 상세페이지
 	@Override
 	public BoardVO read(Integer bno) throws Exception {
 		return session.selectOne(namespace + ".read", bno);
@@ -40,7 +42,8 @@ public class BoardDAOImpl implements BoardDAO {
 	public void delete(Integer bno) throws Exception {
 		session.delete(namespace + ".delete", bno);
 	}
-
+	
+	// 목록
 	@Override
 	public List<BoardVO> listAll() throws Exception {
 		return session.selectList(namespace + ".listAll");
@@ -90,11 +93,12 @@ public class BoardDAOImpl implements BoardDAO {
 		paramMap.put("amount", amount);
 		session.update(namespace + ".updateReplyCnt", paramMap);
 	}
-
+	
+	//조회수
 	@Override
-	public void updateViewCnt(Integer bno) throws Exception {
+	public void updateViewCnt(Integer boardNo) throws Exception {
 
-		session.update(namespace + ".updateViewCnt", bno);
+		session.update(namespace + ".updateViewCnt", boardNo);
 
 	}
 

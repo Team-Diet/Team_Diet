@@ -25,12 +25,12 @@ public class BoardServiceImpl implements BoardService {
 		return dao.getAttach(bno);
 	}
 
-//	@Transactional
-//	@Override
-//	public void regist(BoardVO board) throws Exception {
-//
-//		dao.create(board);
-//
+	@Transactional
+	@Override
+	public void regist(BoardVO board) throws Exception {
+
+		dao.create(board);
+
 //		String[] files = board.getFiles();
 //
 //		if (files == null) {
@@ -40,13 +40,13 @@ public class BoardServiceImpl implements BoardService {
 //		for (String fileName : files) {
 //			dao.addAttach(fileName);
 //		}
-//	}
+	}
 
 	@Transactional(isolation = Isolation.READ_COMMITTED)
 	@Override
-	public BoardVO read(Integer bno) throws Exception {
-		dao.updateViewCnt(bno);
-		return dao.read(bno);
+	public BoardVO read(Integer boardNo) throws Exception {
+		dao.updateViewCnt(boardNo);
+		return dao.read(boardNo);
 	}
 
 //	@Transactional
@@ -78,12 +78,6 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public List<BoardVO> listAll() throws Exception {
 		return dao.listAll();
-	}
-
-	@Override
-	public void regist(BoardVO board) throws Exception {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override

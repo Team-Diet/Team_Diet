@@ -35,7 +35,9 @@ min-height: 100%;
 position: relative;
 padding-bottom: 122px; /* footer height */
 }
-
+.bg-mr{
+	background-color:mistyrose!important;
+}
 .bg-black{
   background-color: black!important;
 }

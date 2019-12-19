@@ -34,54 +34,30 @@
 	<div class="wrap">
 		<div class="container" style="padding-top: 50px; padding-bottom: 50px">
 			<div class="container-fluid">
-				<div class="table-responsive text-center">
-					<table class="table table-hover">
-						<thead style="background-color: black;">
-							<tr scope="col" style="color: white;">
-								<th scope="col">No</th>
-								<th scope="col">Title</th>
-								<th scope="col">Content</th>
-								<th scope="col">Name</th>
-								<th scope="col">Date</th>
-								<th scope="col">Hit</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach items="${list}" var="list">
-								<tr>
-									<th scope="row">${list.boardNo }</th>
-									<td><a href='/board/read?boardNo=${list.boardNo}'>${list.title }</a></td>
-									<td>${list.content }</td>
-									<td>${list.writer }</td>
-									<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
-											value="${list.writeDate}" /></td>
-									<td>${list.bHit }</td>
-								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
-					<hr />
-					<div class="row">
-						<div class="col-8 col-xs-8 col-sm-8 col-md-8">
-							<ul class="pagination pagination-sm">
-								<li class="page-item disabled"><a class="page-link"
-									href="#" tabindex="-1">Previous</a></li>
-								<li class="page-item"><a class="page-link" href="#">1</a></li>
-								<li class="page-item active"><a class="page-link" href="#">2
-										<span class="sr-only">(current)</span>
-								</a></li>
-								<li class="page-item"><a class="page-link" href="#">3</a></li>
-								<li class="page-item"><a class="page-link" href="#">Next</a>
-								</li>
-							</ul>
-						</div>
-						<div class="col-4 col-xs-4 col-sm-4 col-md-4">
-										<form role="form" method="post">
-					<input type='hidden' name='bno' value="${read.userNo}">
-							<a class="btn btn-light float-right wri">write</a>
-							</form>
-						</div>
+				<form role="form" method="post">
+					<input type='hidden' name='bno' value="${read.boardNo}">
+				</form>
+				<div class="box-body">
+					<div class="form-group">
+						<label for="exampleInputEmail1">Title</label> <input type="text"
+							name='title' class="form-control" value="${read.title}"
+							readonly="readonly">
 					</div>
+					<div class="form-group">
+						<label for="exampleInputPassword1">Content</label>
+						<textarea class="form-control" name="content" rows="3"
+							readonly="readonly">${read.content}</textarea>
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1">Writer</label> <input type="text"
+							name="writer" class="form-control" value="${read.writer}"
+							readonly="readonly">
+					</div>
+				</div>
+				<div class="box-footer float-right">
+					<button type="submit" class="btn btn-sm bg-mr modi">Modify</button>
+					<button type="submit" class="btn btn-sm bg-mr remo">REMOVE</button>
+					<button type="submit" class="btn btn-sm bg-mr lial">LIST</button>
 				</div>
 			</div>
 		</div>
@@ -106,11 +82,21 @@
 
 			console.log(formObj);
 
-			$(".wri").on("click", function() {
-				formObj.attr("action", "/board/write");
-				formObj.attr("method", "post");
+			$(".modi").on("click", function() {
+				formObj.attr("action", "/board/modify");
+				formObj.attr("method", "get");
 				formObj.submit();
 			});
+
+			$(".remo").on("click", function() {
+				formObj.attr("action", "/board/remove");
+				formObj.submit();
+			});
+
+			$(".lial").on("click", function() {
+				self.location = "/board/list";
+			});
+
 		});
 	</script>
 </body>

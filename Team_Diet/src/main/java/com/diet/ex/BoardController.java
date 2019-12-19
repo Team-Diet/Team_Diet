@@ -46,7 +46,7 @@ public class BoardController {
 //	 return "redirect:/board/listAll";
 //	 }
 
-	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	@RequestMapping(value = "/write", method = RequestMethod.POST)
 	public String registPOST(BoardVO board, RedirectAttributes rttr) throws Exception {
 
 		logger.info("regist post ...........");
@@ -55,26 +55,28 @@ public class BoardController {
 		service.regist(board);
 
 		rttr.addFlashAttribute("msg", "success");
-		return "redirect:/board/listAll";
+		return "redirect:/board/list";
 	}
-
+	// 목록
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public void listAll(Model model) throws Exception {
 		logger.info("show all list......................");
 		model.addAttribute("list", service.listAll());
 	}
+	// 스케쥴
 	@RequestMapping(value = "/schedule", method = RequestMethod.GET)
 	public void schedule(Model model) throws Exception {
 		logger.info("show schedule......................");
 		model.addAttribute("schedule", service.listAll());
 	}
-
+	
+	// 상세페이지
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
-	public void read(@RequestParam("bno") int bno, Model model) throws Exception {
+	public void read(@RequestParam("boardNo") int boardNo, Model model) throws Exception {
 
-		model.addAttribute(service.read(bno));
+		model.addAttribute("read",service.read(boardNo));
 	}
-
+	
 	@RequestMapping(value = "/remove", method = RequestMethod.POST)
 	public String remove(@RequestParam("bno") int bno, RedirectAttributes rttr) throws Exception {
 
