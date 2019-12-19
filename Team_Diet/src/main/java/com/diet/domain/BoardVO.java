@@ -3,27 +3,16 @@ package com.diet.domain;
 import java.util.Date;
 
 public class BoardVO {
-//		create table diet_board(
-//		    userno references diet_member(userno),
-//		    boardno number(10) primary key,
-//		    title varchar2(100) not null, 
-//		    writer varchar2(40) not null,
-//		    content varchar2(1000) not null,
-//		    bhit number(4) default 0,
-//		    bgroup number(4),
-//		    bstep number(4),
-//		    bindent number(4),
-//		    writedate Date default sysdate
-//		);
+
 	private Integer userNo;
 	private Integer boardNo;
 	private String title;
 	private String writer;
 	private String content;
-	private Integer bHit;
+	private Integer viewCnt;
 	private Integer bGroup;
-	private Integer bStep;
-	private Integer bIndent;
+	private Integer step;
+	private Integer indent;
 	private Date writeDate;
 	
 	public Integer getUserNo() {
@@ -56,11 +45,11 @@ public class BoardVO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Integer getbHit() {
-		return bHit;
+	public Integer getViewCnt() {
+		return viewCnt;
 	}
-	public void setbHit(Integer bHit) {
-		this.bHit = bHit;
+	public void setViewCnt(Integer viewCnt) {
+		this.viewCnt = viewCnt;
 	}
 	public Integer getbGroup() {
 		return bGroup;
@@ -68,17 +57,17 @@ public class BoardVO {
 	public void setbGroup(Integer bGroup) {
 		this.bGroup = bGroup;
 	}
-	public Integer getbStep() {
-		return bStep;
+	public Integer getStep() {
+		return step;
 	}
-	public void setbStep(Integer bStep) {
-		this.bStep = bStep;
+	public void setStep(Integer step) {
+		this.step = step;
 	}
-	public Integer getbIndent() {
-		return bIndent;
+	public Integer getIndent() {
+		return indent;
 	}
-	public void setbIndent(Integer bIndent) {
-		this.bIndent = bIndent;
+	public void setIndent(Integer indent) {
+		this.indent = indent;
 	}
 	public Date getWriteDate() {
 		return writeDate;
@@ -90,8 +79,8 @@ public class BoardVO {
 	@Override
 	public String toString() {
 		return "BoardVO [userNo=" + userNo + ", boardNo=" + boardNo + ", title=" + title + ", writer=" + writer
-				+ ", content=" + content + ", bHit=" + bHit + ", bGroup=" + bGroup + ", bStep=" + bStep + ", bIndent="
-				+ bIndent + ", writeDate=" + writeDate + "]";
+				+ ", content=" + content + ", viewCnt=" + viewCnt + ", bGroup=" + bGroup + ", step=" + step + ", indent="
+				+ indent + ", writeDate=" + writeDate + "]";
 	}
 
 }

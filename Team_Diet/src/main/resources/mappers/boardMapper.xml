@@ -32,12 +32,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- 조회수 -->
-	<update id="updateViewCnt"> update diet_board set bHit =bHit+1 where boardno =
+	<update id="updateViewCnt"> update diet_board set viewcnt =viewcnt+1 where boardno =
 	#{boardno} </update>
 	
 	<!-- 글작성 -->
-	<insert id="create">insert into diet_board (userNo,boardNo,title,writer,content,bGroup,bStep,bIndent)
-		values (2,seq_board.nextval,#{title},#{writer},#{content},seq_board.CURRVAL,0,0)
+	<insert id="create">insert into diet_board (userNo,boardNo,title,writer,content,bGroup,Step,Indent)
+		values (#{userNo},seq_board.nextval,#{title},#{writer},#{content},seq_board.CURRVAL,0,0)
 	</insert>
 	
 	<!-- <select id="listCriteria" resultType="com.diet.domain.BoardVO">

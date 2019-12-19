@@ -55,7 +55,7 @@
 									<td>${list.writer }</td>
 									<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
 											value="${list.writeDate}" /></td>
-									<td>${list.bHit }</td>
+									<td>${list.viewCnt }</td>
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -76,10 +76,7 @@
 							</ul>
 						</div>
 						<div class="col-4 col-xs-4 col-sm-4 col-md-4">
-										<form role="form" method="post">
-					<input type='hidden' name='bno' value="${read.userNo}">
-							<a class="btn btn-light float-right wri">write</a>
-							</form>
+							<a href="board/write" class="btn btn-light float-right">write</a>
 						</div>
 					</div>
 				</div>
@@ -99,20 +96,6 @@
 		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
 		crossorigin="anonymous"></script>
 	<script src="/resources/js/weather.js"></script>
-	<script>
-		$(document).ready(function() {
-
-			var formObj = $("form[role='form']");
-
-			console.log(formObj);
-
-			$(".wri").on("click", function() {
-				formObj.attr("action", "/board/write");
-				formObj.attr("method", "post");
-				formObj.submit();
-			});
-		});
-	</script>
 </body>
 
 </html>
