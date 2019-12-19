@@ -7,7 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
   <select id="login" resultType="UserVO">
   
-  select id, pw, name from diet_member where id = #{id, jdbcType=VARCHAR} and pw = #{pw, jdbcType=VARCHAR}
+  select dtid, pw from diet_member where dtid = #{id, jdbcType=VARCHAR} and pw = #{pw, jdbcType=VARCHAR}
   
   </select>
   

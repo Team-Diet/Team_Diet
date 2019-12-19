@@ -41,11 +41,11 @@ public class UserController {
 	   System.out.println("checking3");
 	   System.out.println(dto);
    UserVO vo = service.login(dto);
-   System.out.println(vo);
+   System.out.println(vo.getDtid());
    if (vo == null) {
    return;
    }
-   System.out.println(vo.getId());
+   System.out.println(vo.getDtid());
   
    model.addAttribute("userVO", vo);
   
@@ -56,7 +56,7 @@ public class UserController {
 
 	   Date sessionLimit = new Date(System.currentTimeMillis() + (1000 * amount));
 
-	   service.keepLogin(vo.getId(), session.getId(), sessionLimit);
+	   service.keepLogin(vo.getDtid(), session.getId(), sessionLimit);
 	   }
 }
 
@@ -79,7 +79,7 @@ public class UserController {
         loginCookie.setPath("/");
         loginCookie.setMaxAge(0);
         response.addCookie(loginCookie);
-        service.keepLogin(vo.getId(), session.getId(), new Date());
+        service.keepLogin(vo.getDtid(), session.getId(), new Date());
       }
     }
     return "home";

@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class UserVO {
 	private Integer userno;
-	private String id;
+	private String dtid;
 	private String pw;
 	private String name;
 	private Integer tall;
@@ -22,11 +22,11 @@ public class UserVO {
 	public void setUserno(Integer userno) {
 		this.userno = userno;
 	}
-	public String getId() {
-		return id;
+	public String getDtid() {
+		return dtid;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setDtid(String dtid) {
+		this.dtid = dtid;
 	}
 	public String getPw() {
 		return pw;
@@ -96,7 +96,7 @@ public class UserVO {
 	}
 	@Override
 	public String toString() {
-		return "UserVO [userno=" + userno + ", id=" + id + ", pw=" + pw + ", name=" + name + ", tall=" + tall
+		return "UserVO [userno=" + userno + ", id=" + dtid + ", pw=" + pw + ", name=" + name + ", tall=" + tall
 				+ ", weight=" + weight + ", address=" + address + ", email=" + email + ", phone=" + phone
 				+ ", joindate=" + joindate + ", grade=" + grade + ", gradeimage=" + gradeimage + ", point=" + point
 				+ "]";

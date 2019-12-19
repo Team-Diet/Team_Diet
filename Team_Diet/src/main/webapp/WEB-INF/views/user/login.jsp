@@ -50,7 +50,7 @@
 
 			<form action="/user/loginPost" method="post">
 				<div class="form-group has-feedback">
-					<input type="text" name="dtid" class="form-control"
+					<input type="text" name="id" class="form-control"
 						placeholder="ID" /> <span
 						class="glyphicon glyphicon-envelope form-control-feedback"></span>
 				</div>
