@@ -21,10 +21,10 @@
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
 						href="/">HOME</a></li>
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="/board/schedule">SCHEDULE</a></li>
+						href="/board/schedule?userno=${login.userno}">SCHEDULE</a></li>
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
 						href="/board/list">BOARD</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+					<li class="nav-item"><a class="nav-	link js-scroll-trigger"
 						href="/user/mypage?id=${login.dtid }">MY PAGE</a></li>
 					<c:if test="${login.dtid==null and naverId==null}">
 						<li class="nav-item"><a class="nav-link js-scroll-trigger"
