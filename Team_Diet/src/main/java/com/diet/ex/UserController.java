@@ -64,9 +64,13 @@ public class UserController {
   @RequestMapping(value = "/logout", method = RequestMethod.GET)
   public String logout(HttpServletRequest request, 
       HttpServletResponse response, HttpSession session) throws Exception {
-
+	System.out.println(session.getAttribute("naverId"));
     Object obj = session.getAttribute("login");
-
+    Object naver = session.getAttribute("naverId");
+    System.out.println(naver);
+    if(naver!=null) {
+    	session.invalidate();
+    }
     if (obj != null) {
       UserVO vo = (UserVO) obj;
 
@@ -82,7 +86,7 @@ public class UserController {
         service.keepLogin(vo.getDtid(), session.getId(), new Date());
       }
     }
-    return "home";
+    return "index";
   }
 
 }

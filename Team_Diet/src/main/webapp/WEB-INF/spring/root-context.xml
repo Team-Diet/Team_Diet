@@ -22,7 +22,7 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
-		<property value="jdbc:oracle:thin:@localhost:1521:orcl"	name="url" />
+		<property value="jdbc:oracle:thin:@localhost:1521:myoracle"	name="url" />
 		<property value="human" name="username" />
 		<property value="human" name="password" />
 	</bean>

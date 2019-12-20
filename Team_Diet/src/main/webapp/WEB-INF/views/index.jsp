@@ -165,6 +165,13 @@
           }
         });
       </script>
+      
+      <script>
+      $(document).ready(function(){
+    	  console.log(${naverId});
+      })
+      
+      </script>
 </body>
 
 </html>

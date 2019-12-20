@@ -26,19 +26,17 @@
 						href="/board/list">BOARD</a></li>
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
 						href="/user/mypage?id=${login.dtid }">MY PAGE</a></li>
-					<c:if test="${login.dtid==null }">
+					<c:if test="${login.dtid==null and naverId==null}">
 						<li class="nav-item"><a class="nav-link js-scroll-trigger"
 							href="join">JOIN</a></li>
 						<li class="nav-item"><a class="nav-link js-scroll-trigger"
-							href="/user/login">LOGIN</a></li>
+							href="/login">LOGIN</a></li>
 					</c:if>
-					<c:if test="${login.dtid != null }">
+					<c:if test="${login.dtid != null or naverId!=null}">
+						<li class="nav-item"><a class="nav-link js-scroll-trigger"
+							href="/user/mypage">${login.dtid } ${naverId }</a></li>
 						<li class="nav-item"><a class="nav-link js-scroll-trigger"
 							href="/user/logout">LOGOUT</a></li>
-						<li class="nav-item"><a class="nav-link js-scroll-trigger"
-							href="/user/mypage">${login.dtid }</a></li>
-						<li class="nav-item"><a class="nav-link js-scroll-trigger"
-							href="/order/cart?oid=${login.dtid }">CART</a></li>
 					</c:if>
 				</ul>
 			</div>
