@@ -76,7 +76,7 @@
 							</ul>
 						</div>
 						<div class="col-4 col-xs-4 col-sm-4 col-md-4">
-							<a href="board/write" class="btn btn-light float-right">write</a>
+							<a href="/board/write" class="btn btn-light float-right">write</a>
 						</div>
 					</div>
 				</div>

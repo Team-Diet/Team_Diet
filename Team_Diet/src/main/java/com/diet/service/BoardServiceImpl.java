@@ -28,9 +28,9 @@ public class BoardServiceImpl implements BoardService {
 	//±€¿€º∫
 	@Transactional
 	@Override
-	public void regist(BoardVO board) throws Exception {
+	public void write(BoardVO board) throws Exception {
 
-		dao.create(board);
+		dao.write(board);
 
 //		String[] files = board.getFiles();
 //

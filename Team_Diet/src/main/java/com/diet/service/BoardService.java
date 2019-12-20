@@ -10,7 +10,7 @@ import com.diet.domain.BoardVO;
 
 public interface BoardService {
 
-	public void regist(BoardVO board) throws Exception;
+	public void write(BoardVO board) throws Exception;
 
 	public BoardVO read(Integer boardNo) throws Exception;
 

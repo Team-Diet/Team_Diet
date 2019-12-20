@@ -54,16 +54,16 @@
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">Writer</label> <input type="text"
-								name="writer" class="form-control" value="${boardVO.writer}">
+								name="writer" class="form-control"  value="${boardVO.writer}">
 						</div>
 					</div>
 					<!-- /.box-body -->
 				</form>
 
 
-				<div class="box-footer">
-					<button type="submit" class="btn btn-primary">SAVE</button>
-					<button type="submit" class="btn btn-warning">CANCEL</button>
+				<div class="box-footer float-right">
+					<button type="submit" class="btn btn-sm bg-mr sav">SAVE</button>
+					<button type="submit" class="btn btn-sm bg-mr can">CANCEL</button>
 				</div>
 			</div>
 		</div>
@@ -88,11 +88,11 @@
 
 		console.log(formObj);
 
-		$(".btn-warning").on("click", function() {
+		$(".can").on("click", function() {
 			self.location = "/board/list";
 		});
 
-		$(".btn-primary").on("click", function() {
+		$(".sav").on("click", function() {
 			formObj.submit();
 		});
 

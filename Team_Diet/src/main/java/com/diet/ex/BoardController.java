@@ -26,24 +26,24 @@ public class BoardController {
 	@Inject
 	private BoardService service;
 
-	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	@RequestMapping(value = "/write", method = RequestMethod.GET)
 	public void registerGET(BoardVO board, Model model) throws Exception {
 
 		logger.info("register get ...........");
 	}
 
-//	 @RequestMapping(value = "/register", method = RequestMethod.POST)
+//	 @RequestMapping(value = "/write", method = RequestMethod.POST)
 //	 public String registPOST(BoardVO board, Model model) throws Exception {
 //	
 //	 logger.info("regist post ...........");
 //	 logger.info(board.toString());
 //	
-//	 service.regist(board);
+//	 service.write(board);
 //	
 //	 model.addAttribute("result", "success");
 //	
 //	 //return "/board/success";
-//	 return "redirect:/board/listAll";
+//	 return "redirect:/board/list";
 //	 }
 
 	@RequestMapping(value = "/write", method = RequestMethod.POST)
@@ -52,31 +52,31 @@ public class BoardController {
 		logger.info("regist post ...........");
 		logger.info(board.toString());
 
-		service.regist(board);
+		service.write(board);
 
 		rttr.addFlashAttribute("msg", "success");
 		return "redirect:/board/list";
 	}
-	// 紐⑸줉
+	// 목록
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public void listAll(Model model) throws Exception {
 		logger.info("show all list......................");
 		model.addAttribute("list", service.listAll());
 	}
-	// �뒪耳�伊�
+	// schedule
 	@RequestMapping(value = "/schedule", method = RequestMethod.GET)
 	public void schedule(Model model) throws Exception {
 		logger.info("show schedule......................");
 		model.addAttribute("schedule", service.listAll());
 	}
 	
-	// �긽�꽭�럹�씠吏�
+	// 상세페이지
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
 	public void read(@RequestParam("boardNo") int boardNo, Model model) throws Exception {
 
 		model.addAttribute("read",service.read(boardNo));
 	}
-	// delete
+	// 삭제
 	@RequestMapping(value = "/remove", method = RequestMethod.POST)
 	public String remove(@RequestParam("boardNo") int boardno, RedirectAttributes rttr) throws Exception {
 

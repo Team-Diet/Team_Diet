@@ -26,10 +26,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 
 	<!-- 글작성 -->
-	<insert id="create">insert into diet_board
+	<insert id="write">insert into diet_board
 		(userNo,boardNo,title,writer,content,bGroup,Step,Indent)
 		values
-		(#{userNo},seq_board.nextval,#{title},#{writer},#{content},seq_board.CURRVAL,0,0)
+		(2,diet_board_seq.nextval,#{title},#{writer},#{content},diet_board_seq.currval,0,0)
 	</insert>
 	
 	<!-- 글삭제 -->

@@ -8,7 +8,7 @@ import com.diet.domain.BoardVO;
 
 public interface BoardDAO {
 
-	public void create(BoardVO vo) throws Exception;
+	public void write(BoardVO vo) throws Exception;
 
 	public BoardVO read(Integer boardNo) throws Exception;
 

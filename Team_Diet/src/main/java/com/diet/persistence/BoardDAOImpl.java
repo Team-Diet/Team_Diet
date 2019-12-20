@@ -23,8 +23,8 @@ public class BoardDAOImpl implements BoardDAO {
 
 	// 글작성
 	@Override
-	public void create(BoardVO vo) throws Exception {
-		session.insert(namespace + ".create", vo);
+	public void write(BoardVO vo) throws Exception {
+		session.insert(namespace + ".write", vo);
 	}
 	
 	// 상세페이지
