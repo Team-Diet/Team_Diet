@@ -57,40 +57,40 @@ public class BoardController {
 		rttr.addFlashAttribute("msg", "success");
 		return "redirect:/board/list";
 	}
-	// 목록
+	// 紐⑸줉
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public void listAll(Model model) throws Exception {
 		logger.info("show all list......................");
 		model.addAttribute("list", service.listAll());
 	}
-	// 스케쥴
+	// �뒪耳�伊�
 	@RequestMapping(value = "/schedule", method = RequestMethod.GET)
 	public void schedule(Model model) throws Exception {
 		logger.info("show schedule......................");
 		model.addAttribute("schedule", service.listAll());
 	}
 	
-	// 상세페이지
+	// �긽�꽭�럹�씠吏�
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
 	public void read(@RequestParam("boardNo") int boardNo, Model model) throws Exception {
 
 		model.addAttribute("read",service.read(boardNo));
 	}
-	
+	// delete
 	@RequestMapping(value = "/remove", method = RequestMethod.POST)
-	public String remove(@RequestParam("bno") int bno, RedirectAttributes rttr) throws Exception {
+	public String remove(@RequestParam("boardNo") int boardno, RedirectAttributes rttr) throws Exception {
 
-		service.remove(bno);
+		service.remove(boardno);
 
 		rttr.addFlashAttribute("msg", "success");
 
-		return "redirect:/board/listAll";
+		return "redirect:/board/list";
 	}
 
 	@RequestMapping(value = "/modify", method = RequestMethod.GET)
-	public void modifyGET(int bno, Model model) throws Exception {
+	public void modifyGET(int boardNo, Model model) throws Exception {
 
-		model.addAttribute(service.read(bno));
+		model.addAttribute(service.read(boardNo));
 	}
 
 	@RequestMapping(value = "/modify", method = RequestMethod.POST)
@@ -101,7 +101,7 @@ public class BoardController {
 		service.modify(board);
 		rttr.addFlashAttribute("msg", "success");
 
-		return "redirect:/board/listAll";
+		return "redirect:/board/list";
 	}
 
 //	@RequestMapping(value = "/listCri", method = RequestMethod.GET)

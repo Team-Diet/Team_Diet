@@ -18,13 +18,14 @@ public class BoardServiceImpl implements BoardService {
 
 	@Inject
 	private BoardDAO dao;
-
+	
 	@Override
 	public List<String> getAttach(Integer bno) throws Exception {
 
 		return dao.getAttach(bno);
 	}
-
+	
+	//글작성
 	@Transactional
 	@Override
 	public void regist(BoardVO board) throws Exception {
@@ -42,18 +43,19 @@ public class BoardServiceImpl implements BoardService {
 //		}
 	}
 
+	//조회수,상세페이지
 	@Transactional(isolation = Isolation.READ_COMMITTED)
 	@Override
 	public BoardVO read(Integer boardNo) throws Exception {
 		dao.updateViewCnt(boardNo);
 		return dao.read(boardNo);
 	}
+	//수정
+	@Transactional
+	@Override
+	public void modify(BoardVO board) throws Exception {
+		dao.update(board);
 
-//	@Transactional
-//	@Override
-//	public void modify(BoardVO board) throws Exception {
-//		dao.update(board);
-//
 //		Integer bno = board.getBno();
 //
 //		dao.deleteAttach(bno);
@@ -67,24 +69,20 @@ public class BoardServiceImpl implements BoardService {
 //		for (String fileName : files) {
 //			dao.replaceAttach(fileName,bno);
 //		}
-//	}
-
-	@Override
-	public void remove(Integer bno) throws Exception {
-		dao.deleteAttach(bno);
-		dao.delete(bno);
 	}
 
+	//삭제
+	@Override
+	public void remove(Integer bno) throws Exception {
+//		dao.deleteAttach(bno);
+		dao.delete(bno);
+	}
+	//목록
 	@Override
 	public List<BoardVO> listAll() throws Exception {
 		return dao.listAll();
 	}
 
-	@Override
-	public void modify(BoardVO board) throws Exception {
-		// TODO Auto-generated method stub
-		
-	}
 
 //	@Override
 //	public List<BoardVO> listCriteria(Criteria cri) throws Exception {

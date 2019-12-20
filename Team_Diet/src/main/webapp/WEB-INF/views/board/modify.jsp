@@ -35,29 +35,35 @@
 		<div class="container" style="padding-top: 50px; padding-bottom: 50px">
 			<div class="container-fluid">
 				<form role="form" method="post">
-					<input type='hidden' name='boardNo' value="${read.boardNo}">
+
+					<div class="box-body">
+
+						<div class="form-group">
+							<label for="exampleInputEmail1">No</label> <input type="text"
+								name='bno' class="form-control" value="${boardVO.boardNo}"
+								readonly="readonly">
+						</div>
+
+						<div class="form-group">
+							<label for="exampleInputEmail1">Title</label> <input type="text"
+								name='title' class="form-control" value="${boardVO.title}">
+						</div>
+						<div class="form-group">
+							<label for="exampleInputPassword1">Content</label>
+							<textarea class="form-control" name="content" rows="3">${boardVO.content}</textarea>
+						</div>
+						<div class="form-group">
+							<label for="exampleInputEmail1">Writer</label> <input type="text"
+								name="writer" class="form-control" value="${boardVO.writer}">
+						</div>
+					</div>
+					<!-- /.box-body -->
 				</form>
-				<div class="box-body">
-					<div class="form-group">
-						<label for="exampleInputEmail1">Title</label> <input type="text"
-							name='title' class="form-control" value="${read.title}"
-							readonly="readonly">
-					</div>
-					<div class="form-group">
-						<label for="exampleInputPassword1">Content</label>
-						<textarea class="form-control" name="content" rows="3"
-							readonly="readonly">${read.content}</textarea>
-					</div>
-					<div class="form-group">
-						<label for="exampleInputEmail1">Writer</label> <input type="text"
-							name="writer" class="form-control" value="${read.writer}"
-							readonly="readonly">
-					</div>
-				</div>
-				<div class="box-footer float-right">
-					<button type="submit" class="btn btn-sm bg-mr modi">Modify</button>
-					<button type="submit" class="btn btn-sm bg-mr remo">REMOVE</button>
-					<button type="submit" class="btn btn-sm bg-mr lial">LIST</button>
+
+
+				<div class="box-footer">
+					<button type="submit" class="btn btn-primary">SAVE</button>
+					<button type="submit" class="btn btn-warning">CANCEL</button>
 				</div>
 			</div>
 		</div>
@@ -75,30 +81,23 @@
 		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
 		crossorigin="anonymous"></script>
 	<script src="/resources/js/weather.js"></script>
-	<script>
-		$(document).ready(function() {
+<script>
+	$(document).ready(function() {
 
-			var formObj = $("form[role='form']");
+		var formObj = $("form[role='form']");
 
-			console.log(formObj);
+		console.log(formObj);
 
-			$(".modi").on("click", function() {
-				formObj.attr("action", "/board/modify");
-				formObj.attr("method", "get");
-				formObj.submit();
-			});
-
-			$(".remo").on("click", function() {
-				formObj.attr("action", "/board/remove");
-				formObj.submit();
-			});
-
-			$(".lial").on("click", function() {
-				self.location = "/board/list";
-			});
-
+		$(".btn-warning").on("click", function() {
+			self.location = "/board/list";
 		});
-	</script>
+
+		$(".btn-primary").on("click", function() {
+			formObj.submit();
+		});
+
+	});
+</script>
 </body>
 
 </html>

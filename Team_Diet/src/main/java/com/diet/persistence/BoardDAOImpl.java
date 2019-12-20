@@ -32,15 +32,15 @@ public class BoardDAOImpl implements BoardDAO {
 	public BoardVO read(Integer bno) throws Exception {
 		return session.selectOne(namespace + ".read", bno);
 	}
-
+	// 글수정
 	@Override
 	public void update(BoardVO vo) throws Exception {
 		session.update(namespace + ".update", vo);
 	}
-
+	// 글삭제
 	@Override
-	public void delete(Integer bno) throws Exception {
-		session.delete(namespace + ".delete", bno);
+	public void delete(Integer boardno) throws Exception {
+		session.delete(namespace + ".delete", boardno);
 	}
 	
 	// 목록
@@ -85,6 +85,7 @@ public class BoardDAOImpl implements BoardDAO {
 //		return session.selectOne(namespace + ".listSearchCount", cri);
 //	}
 
+	
 	@Override
 	public void updateReplyCnt(Integer bno, int amount) throws Exception {
 
@@ -94,7 +95,7 @@ public class BoardDAOImpl implements BoardDAO {
 		session.update(namespace + ".updateReplyCnt", paramMap);
 	}
 	
-	//조회수
+	// 조회수
 	@Override
 	public void updateViewCnt(Integer boardNo) throws Exception {
 
@@ -115,9 +116,9 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	@Override
-	public void deleteAttach(Integer bno) throws Exception {
+	public void deleteAttach(Integer boardno) throws Exception {
 
-		session.delete(namespace + ".deleteAttach", bno);
+		session.delete(namespace + ".deleteAttach", boardno);
 
 	}
 
