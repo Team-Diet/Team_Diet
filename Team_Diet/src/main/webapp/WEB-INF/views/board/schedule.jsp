@@ -82,19 +82,28 @@
 	var line = document.getElementById('lineChart'); //월별 비교
 	var pie = document.getElementById('pieChart'); // 일별 기초대사량 대비 섭취 칼로리 비교
 	var bar = document.getElementById('barChart'); // 주별 비교
-	var d= new Date();
-	var login;
+	
 	////////////////////////////////////
 	$( document ).ready(function() {
 		var id=${login.userno};	
 		alert(id);
+		var test=${chart.totalfood};
+		alert(test);
 	});
 	////////////////////////////////////
 	//기초대사량 구하는 공식 = 
 	//남자 : 66.47+(13.75*체중)+(5*키)-(6.76*나이)
 	//여자 : 655.1+(9.56*체중)+(1.85*키)-(4.68*나이)
-	var daycal_eat=200; //먹은 칼로리
-	var daycal_total=1000; //기초대사량
+	
+	var daycal_eat=${chart.totalfood}; //먹은 칼로리
+	
+	var daycal_total=function(){
+		if(${login.gender}=='m'){
+			daycal_total=66.47+(13.75*${login.weight})+(5*${login.tall})-(6.76*25);
+		}else{
+			daycal_total=655.1+(9.56*${login.weight})+(1.85*${login.tall})-(4.68*25);
+		}
+	}; //기초대사량
 	var daycal_cal=daycal_total-daycal_eat; //기초대사량 - 먹은칼로리
 	var lineChart = new Chart(line, {
 		type: 'line',

@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
+
+import com.diet.domain.ChartVO;
 import com.diet.domain.UserVO;
 import com.diet.dto.LoginDTO;
 import com.diet.persistence.UserDAO;
@@ -19,6 +21,12 @@ public class UserServiceImpl implements UserService {
   public UserVO login(LoginDTO dto) throws Exception {
 
     return dao.login(dto);
+  }
+  
+  @Override
+  public ChartVO chart(UserVO vo) throws Exception {
+
+    return dao.chart(vo);
   }
   
   @Override

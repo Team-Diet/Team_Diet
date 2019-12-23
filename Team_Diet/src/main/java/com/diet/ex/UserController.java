@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.util.WebUtils;
+
+import com.diet.domain.ChartVO;
 import com.diet.domain.UserVO;
 import com.diet.dto.LoginDTO;
 import com.diet.service.UserService;
@@ -41,13 +43,16 @@ public class UserController {
 	   System.out.println("checking3");
 	   System.out.println(dto);
    UserVO vo = service.login(dto);
+   ChartVO chartvo = service.chart(vo);
    System.out.println(vo.getDtid());
+   System.out.println("chart°ª : "+chartvo.getTotalfood());
    if (vo == null) {
    return;
    }
    System.out.println(vo.getDtid());
   
    model.addAttribute("userVO", vo);
+   model.addAttribute("chartVO", chartvo);
   
    
    if (dto.isUseCookie()) {

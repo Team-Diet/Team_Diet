@@ -14,6 +14,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 public class LoginInterceptor extends HandlerInterceptorAdapter {
 
 	private static final String LOGIN = "login";
+	private static final String CHART = "chart";
 	private static final Logger logger = LoggerFactory.getLogger(LoginInterceptor.class);
 
 	@Override
@@ -24,11 +25,13 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 
 		ModelMap modelMap = modelAndView.getModelMap();
 		Object userVO = modelMap.get("userVO");
+		Object chartVO = modelMap.get("chartVO");
 		System.out.println("checking1");
 		if (userVO != null) {
 			System.out.println("success login");
 			logger.info("new login success");
 			session.setAttribute(LOGIN, userVO);
+			session.setAttribute(CHART, chartVO);
 //response.sendRedirect("/");
 			if(request.getParameter("useCookie")!=null) {
 				System.out.println("remember me.....");

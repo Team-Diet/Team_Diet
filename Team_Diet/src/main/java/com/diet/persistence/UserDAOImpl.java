@@ -8,6 +8,8 @@ import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
+
+import com.diet.domain.ChartVO;
 import com.diet.domain.UserVO;
 import com.diet.dto.LoginDTO;
 
@@ -21,8 +23,12 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public UserVO login(LoginDTO dto) throws Exception {
-		
 		return session.selectOne(namespace +".login", dto);
+	}
+	
+	@Override
+	public ChartVO chart(UserVO vo) throws Exception {
+		return session.selectOne(namespace +".chart", vo);
 	}
 	
   @Override
