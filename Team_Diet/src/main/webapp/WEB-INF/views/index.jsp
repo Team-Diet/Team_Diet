@@ -128,7 +128,22 @@
   <script type="text/javascript" src="/resources/js/chart/Chart.bundle.min.js"></script>
   <script type="text/javascript" src="/resources/js/chart/Chart.min.js"></script>
   <script>
-    var ctx = document.getElementById('yourChart');
+	var gender='${login.gender}';
+	var daycal_eat=${chart.totalfood}; //먹은 칼로리
+	var weight=${login.weight}; var tall=${login.tall}; var age=${login.age};
+	var total_car = function(){
+		if(gender=='m'){
+			alert("man");
+			return 66.47+(13.75*weight)+(5*tall)-(6.76*age);
+		}else{
+			alert("woman");
+			return 655.1+(9.56*weight)+(1.85*tall)-(4.68*age);
+		}
+	};
+	var daycal_total=total_car();
+	var daycal_cal=Number(daycal_total)-Number(daycal_eat); //기초대사량 - 먹은칼로리
+   
+	var ctx = document.getElementById('yourChart');
     var youChart = new Chart(ctx, {
       type: 'pie',
       data: {
@@ -145,25 +160,23 @@
         }]
       }
     });
-  </script>
-    <script>
         var ctx = document.getElementById('myChart');
         var myChart = new Chart(ctx, {
-          type: 'pie',
-          data: {
-            datasets: [{
-              data: [1000, 800],
-              backgroundColor: [
-                "#FF6384",
-                "#36A2EB"
-              ],
-              hoverBackgroundColor: [
-                "#FF6384",
-                "#36A2EB"
-              ]
-            }]
-          }
-        });
+			type: 'pie',
+			data: {
+				datasets: [{
+					data: [daycal_cal,daycal_eat],
+					backgroundColor:[
+						"#FF6384",
+						"#36A2EB"
+					],
+					hoverBackgroundColor:[
+						"#FF6384",
+						"#36A2EB"
+					]
+				}]
+			}
+		});
       </script>
       
       <script>

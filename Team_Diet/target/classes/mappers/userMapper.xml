@@ -7,8 +7,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
   <select id="login" resultType="UserVO">
   
-  select userno, dtid, pw, name, gender, tall, weight, address, email, phone, joindate, grade, gradeimage, point, sessionkey, sessionlimit from diet_member where dtid = #{id, jdbcType=VARCHAR} and pw = #{pw, jdbcType=VARCHAR}
+  select userno, dtid, pw, name, age, gender, tall, weight, address, email, phone, joindate, grade, gradeimage, point, sessionkey, sessionlimit from diet_member where dtid = #{id, jdbcType=VARCHAR} and pw = #{pw, jdbcType=VARCHAR}
   
+  </select>
+  
+  <select id="chart" resultType="ChartVO">
+  select userno,exerciselist,totalex,foodlist,totalfood,dtoday from diet_today where userno=#{userno} and dtoday=to_char(sysdate, 'YYYY-MM-DD')
   </select>
   
   <update id="keepLogin" >

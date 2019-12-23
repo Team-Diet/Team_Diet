@@ -6,6 +6,7 @@ public class UserVO {
 	private Integer userno;
 	private String dtid;
 	private String pw;
+	private Integer age;
 	private String name;
 	private String gender;
 	private Integer tall;
@@ -17,14 +18,6 @@ public class UserVO {
 	private Integer grade;
 	private String gradeimage;
 	private Integer point;
-	
-	
-	public String getGender() {
-		return gender;
-	}
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
 	public Integer getUserno() {
 		return userno;
 	}
@@ -43,11 +36,23 @@ public class UserVO {
 	public void setPw(String pw) {
 		this.pw = pw;
 	}
+	public Integer getAge() {
+		return age;
+	}
+	public void setAge(Integer age) {
+		this.age = age;
+	}
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 	public Integer getTall() {
 		return tall;
@@ -105,11 +110,14 @@ public class UserVO {
 	}
 	@Override
 	public String toString() {
-		return "UserVO [userno=" + userno + ", dtid=" + dtid + ", pw=" + pw + ", name=" + name + ", gender=" + gender
-				+ ", tall=" + tall + ", weight=" + weight + ", address=" + address + ", email=" + email + ", phone="
-				+ phone + ", joindate=" + joindate + ", grade=" + grade + ", gradeimage=" + gradeimage + ", point="
-				+ point + "]";
+		return "UserVO [userno=" + userno + ", dtid=" + dtid + ", pw=" + pw + ", age=" + age + ", name=" + name
+				+ ", gender=" + gender + ", tall=" + tall + ", weight=" + weight + ", address=" + address + ", email="
+				+ email + ", phone=" + phone + ", joindate=" + joindate + ", grade=" + grade + ", gradeimage="
+				+ gradeimage + ", point=" + point + "]";
 	}
+	
+	
+	
 	
 	
 	

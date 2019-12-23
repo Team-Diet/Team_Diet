@@ -84,112 +84,110 @@
 	var bar = document.getElementById('barChart'); // 주별 비교
 	
 	////////////////////////////////////
-	$( document ).ready(function() {
-		var id=${login.userno};	
-		alert(id);
-		var test=${chart.totalfood};
-		alert(test);
-	});
+		var gender='${login.gender}';
+		var daycal_eat=${chart.totalfood}; //먹은 칼로리
+		var weight=${login.weight}; var tall=${login.tall}; var age=${login.age};
+		var total_car = function(){
+			if(gender=='m'){
+				alert("man");
+				return 66.47+(13.75*weight)+(5*tall)-(6.76*age);
+			}else{
+				alert("woman");
+				return 655.1+(9.56*weight)+(1.85*tall)-(4.68*age);
+			}
+		};
+		var daycal_total=total_car();
+		var daycal_cal=Number(daycal_total)-Number(daycal_eat); //기초대사량 - 먹은칼로리
+		var lineChart = new Chart(line, {
+			type: 'line',
+			data: {
+				labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+				datasets: [{
+					label: '',
+					data: [1000, 1500, 2000, 2500, 3000, 3500],
+					fillColor: "rgba(220,220,220,0.2)",
+	                strokeColor: "rgba(220,220,220,1)",
+	                pointColor: "rgba(220,220,220,1)",
+	                pointStrokeColor: "#fff",
+	                pointHighlightFill: "#fff",
+	                pointHighlightStroke: "rgba(220,220,220,1)",
+	                data: [1450, 1500, 1900, 2700, 3000, 3100, 2540]	
+				},
+				{
+	                label: "",
+	                fillColor: "rgba(151,187,205,0.2)",
+	                strokeColor: "rgba(151,187,205,1)",
+	                pointColor: "rgba(151,187,205,1)",
+	                pointStrokeColor: "#fff",
+	                pointHighlightFill: "#fff",
+	                pointHighlightStroke: "rgba(151,187,205,1)",
+	                data: [1200, 1300, 1400, 1200, 1500, 2400, 2000]
+	            }]
+			},
+			options: {
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero: true
+						}
+					}]
+				},
+			}
+		});
+		
+		
+		//일별비교 pie 차트
+		var pieChart = new Chart(pie, {
+			type: 'pie',
+			data: {
+				datasets: [{
+					data: [daycal_cal,daycal_eat],
+					backgroundColor:[
+						"#FF6384",
+						"#36A2EB"
+					],
+					hoverBackgroundColor:[
+						"#FF6384",
+						"#36A2EB"
+					]
+				}]
+			}
+		});
+		
+		
+		
+		var pieChart = new Chart(bar, {
+			type: 'bar',
+			data: {
+				labels: ["아침", "점심", "저녁", "간식", "야식"],
+				datasets: [{
+		            label: 'Pass',
+		            backgroundColor: "#1E90FF",
+		            data: [
+		                670,
+		                450,
+		                300,
+		                200,
+		                1500,
+		           ]
+		        }, {
+		            label: 'NG',
+		            backgroundColor: "#F7464A",
+		            data: [
+		            	570,
+		                350,
+		                200,
+		                100,
+		                1400,
+		            ]
+		        }]
+			}
+		});
 	////////////////////////////////////
 	//기초대사량 구하는 공식 = 
 	//남자 : 66.47+(13.75*체중)+(5*키)-(6.76*나이)
 	//여자 : 655.1+(9.56*체중)+(1.85*키)-(4.68*나이)
 	
-	var daycal_eat=${chart.totalfood}; //먹은 칼로리
-	
-	var daycal_total=function(){
-		if(${login.gender}=='m'){
-			daycal_total=66.47+(13.75*${login.weight})+(5*${login.tall})-(6.76*25);
-		}else{
-			daycal_total=655.1+(9.56*${login.weight})+(1.85*${login.tall})-(4.68*25);
-		}
-	}; //기초대사량
-	var daycal_cal=daycal_total-daycal_eat; //기초대사량 - 먹은칼로리
-	var lineChart = new Chart(line, {
-		type: 'line',
-		data: {
-			labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-			datasets: [{
-				label: '',
-				data: [1000, 1500, 2000, 2500, 3000, 3500],
-				fillColor: "rgba(220,220,220,0.2)",
-                strokeColor: "rgba(220,220,220,1)",
-                pointColor: "rgba(220,220,220,1)",
-                pointStrokeColor: "#fff",
-                pointHighlightFill: "#fff",
-                pointHighlightStroke: "rgba(220,220,220,1)",
-                data: [1450, 1500, 1900, 2700, 3000, 3100, 2540]	
-			},
-			{
-                label: "",
-                fillColor: "rgba(151,187,205,0.2)",
-                strokeColor: "rgba(151,187,205,1)",
-                pointColor: "rgba(151,187,205,1)",
-                pointStrokeColor: "#fff",
-                pointHighlightFill: "#fff",
-                pointHighlightStroke: "rgba(151,187,205,1)",
-                data: [1200, 1300, 1400, 1200, 1500, 2400, 2000]
-            }]
-		},
-		options: {
-			scales: {
-				yAxes: [{
-					ticks: {
-						beginAtZero: true
-					}
-				}]
-			},
-		}
-	});
-	
-	
-	//일별비교 pie 차트
-	var pieChart = new Chart(pie, {
-		type: 'pie',
-		data: {
-			datasets: [{
-				data: [daycal_cal,daycal_eat],
-				backgroundColor:[
-					"#FF6384",
-					"#36A2EB"
-				],
-				hoverBackgroundColor:[
-					"#FF6384",
-					"#36A2EB"
-				]
-			}]
-		}
-	});
-	
-	
-	
-	var pieChart = new Chart(bar, {
-		type: 'bar',
-		data: {
-			labels: ["아침", "점심", "저녁", "간식", "야식"],
-			datasets: [{
-	            label: 'Pass',
-	            backgroundColor: "#1E90FF",
-	            data: [
-	                670,
-	                450,
-	                300,
-	                200,
-	                1500,
-	           ]
-	        }, {
-	            label: 'NG',
-	            backgroundColor: "#F7464A",
-	            data: [
-	            	570,
-	                350,
-	                200,
-	                100,
-	                1400,
-	            ]
-	        }]
-		}
-	});
 </script>
 </body>
 
