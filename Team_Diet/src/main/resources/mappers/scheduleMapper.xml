@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.diet.mapper.scheduleMapper">
+
+	<!-- 상세페이지 -->
+	<insert id="car">
+		insert into member_eat2 (userno,morning,afternoon,evening,snack,midnight)
+		values (6,
+		(select sum(cal) from member_eat where userno=#{userNo} and category='아침'),
+		(select sum(cal) from member_eat where userno=#{userNo} and category='점심'),
+		(select sum(cal) from member_eat where userno=#{userNo} and category='저녁'),
+		(select sum(cal) from member_eat where userno=#{userNo} and category='간식'),
+		(select sum(cal) from member_eat where userno=#{userNo} and category='야식'))
+	</insert>
+	<delete id="delete"> 
+	delete from member_eat2 where userno = #{userNo}
+	</delete>
+	<select id="readchart" resultType="com.diet.domain.BarchartVO2">
+		select morning,afternoon,evening,snack,midnight from member_eat2 where userno=#{userNo}
+	</select>
+
+</mapper>

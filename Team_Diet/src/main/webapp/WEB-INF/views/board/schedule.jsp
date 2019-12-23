@@ -98,6 +98,8 @@
 		};
 		var daycal_total=total_car();
 		var daycal_cal=Number(daycal_total)-Number(daycal_eat); //기초대사량 - 먹은칼로리
+		
+		
 		var lineChart = new Chart(line, {
 			type: 'line',
 			data: {

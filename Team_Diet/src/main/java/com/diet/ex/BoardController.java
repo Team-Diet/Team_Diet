@@ -15,7 +15,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 //import org.zerock.domain.PageMaker;
 
 import com.diet.domain.BoardVO;
+import com.diet.dto.LoginDTO;
 import com.diet.service.BoardService;
+import com.diet.service.ScheduleService;
 
 @Controller
 @RequestMapping("/board/*")
@@ -25,7 +27,9 @@ public class BoardController {
 
 	@Inject
 	private BoardService service;
-
+	@Inject
+	private ScheduleService Sservice;
+	
 	@RequestMapping(value = "/write", method = RequestMethod.GET)
 	public void registerGET(BoardVO board, Model model) throws Exception {
 
@@ -64,10 +68,18 @@ public class BoardController {
 		model.addAttribute("list", service.listAll());
 	}
 	// schedule
+	
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	  public void loginGET(@ModelAttribute("dto") LoginDTO dto) {
+		  System.out.println("checking2");
+	  }
+	
+	
 	@RequestMapping(value = "/schedule", method = RequestMethod.GET)
-	public void schedule(Model model) throws Exception {
+	public void schedule(@RequestParam("userno") int userno,Model model) throws Exception {
 		logger.info("show schedule......................");
-		model.addAttribute("schedule", service.listAll());
+		logger.info("Userno 값 : "+userno);
+		model.addAttribute("schedule", Sservice.chart_daytoday(userno));
 	}
 	
 	// 상세페이지
