@@ -31,9 +31,47 @@
 			</div>
 		</div>
 	</header>
+
+
 	<div class="wrap">
+		<div class='box'>
+			
+
+
 		<div class="container" style="padding-top: 50px; padding-bottom: 50px">
 			<div class="container-fluid">
+			<div class="box-header with-border">
+				<h3 class="box-title">Board List</h3>
+			</div>
+			
+			<div class='box-body float-right'>
+				<select name="searchType">
+					<option value="n"
+						<c:out value="${cri.searchType == null?'selected':''}"/>>
+						---</option>
+					<option value="t"
+						<c:out value="${cri.searchType eq 't'?'selected':''}"/>>
+						Title</option>
+					<option value="c"
+						<c:out value="${cri.searchType eq 'c'?'selected':''}"/>>
+						Content</option>
+					<option value="w"
+						<c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
+						Writer</option>
+					<option value="tc"
+						<c:out value="${cri.searchType eq 'tc'?'selected':''}"/>>
+						Title OR Content</option>
+					<option value="cw"
+						<c:out value="${cri.searchType eq 'cw'?'selected':''}"/>>
+						Content OR Writer</option>
+					<option value="tcw"
+						<c:out value="${cri.searchType eq 'tcw'?'selected':''}"/>>
+						Title OR Content OR Writer</option>
+				</select> <input type="text" name='keyword' id="keywordInput"
+					value='${cri.keyword }'>
+				<button id='searchBtn'>Search</button>
+			</div>
+		</div>
 				<div class="table-responsive text-center">
 					<table class="table table-hover">
 						<thead style="background-color: black;">
@@ -57,22 +95,41 @@
 											value="${list.writeDate}" /></td>
 									<td>${list.viewCnt }</td>
 								</tr>
+
+								<%-- 								<tr>
+									<td><a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page) }&bno=${boardVO.bno}'>
+											${boardVO.title} <strong>[ ${boardVO.replycnt} ]</strong>
+									</a></td> --%>
 							</c:forEach>
 						</tbody>
 					</table>
 					<hr />
+
 					<div class="row">
 						<div class="col-8 col-xs-8 col-sm-8 col-md-8">
 							<ul class="pagination pagination-sm">
-								<li class="page-item disabled"><a class="page-link"
-									href="#" tabindex="-1">Previous</a></li>
-								<li class="page-item"><a class="page-link" href="#">1</a></li>
-								<li class="page-item active"><a class="page-link" href="#">2
-										<span class="sr-only">(current)</span>
-								</a></li>
-								<li class="page-item"><a class="page-link" href="#">3</a></li>
-								<li class="page-item"><a class="page-link" href="#">Next</a>
+							<c:if test="${pageMaker.prev}">
+								<li class="page-item">
+								<a class="page-link" tabindex="-1" href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }">Previous</a>
 								</li>
+							</c:if>
+									
+								<c:forEach begin="${pageMaker.startPage }"
+								end="${pageMaker.endPage }" var="idx">
+								<li class="page-item"
+								<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+								<a class="page-link" href="list${pageMaker.makeSearch(idx)}">${idx}</a></li>
+								</c:forEach>
+								
+<!-- 								<li class="page-item active"><a class="page-link" href="#">2
+										<span class="sr-only">(current)</span>
+								</a></li> -->
+								
+								<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+								<li class="page-item"><a class="page-link" href="list${pageMaker.makeSearch(pageMaker.endPage +1) }">Next</a>
+								
+								</li>
+								</c:if>
 							</ul>
 						</div>
 						<div class="col-4 col-xs-4 col-sm-4 col-md-4">
@@ -96,6 +153,23 @@
 		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
 		crossorigin="anonymous"></script>
 	<script src="/resources/js/weather.js"></script>
+	<script>
+	$(document).ready(
+			function() {
+
+				$('#searchBtn').on(
+						"click",
+						function(event) {
+
+							self.location = "list"
+									+ '${pageMaker.makeQuery(1)}'
+									+ "&searchType="
+									+ $("select option:selected").val()
+									+ "&keyword=" + $('#keywordInput').val();
+
+						});
+			});
+</script>
 </body>
 
 </html>

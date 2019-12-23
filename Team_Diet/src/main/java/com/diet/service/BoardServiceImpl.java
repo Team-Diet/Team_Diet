@@ -11,6 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 //import org.zerock.domain.SearchCriteria;
 
 import com.diet.domain.BoardVO;
+import com.diet.domain.Criteria;
+import com.diet.domain.SearchCriteria;
 import com.diet.persistence.BoardDAO;
 
 @Service
@@ -19,13 +21,13 @@ public class BoardServiceImpl implements BoardService {
 	@Inject
 	private BoardDAO dao;
 	
-	@Override
-	public List<String> getAttach(Integer bno) throws Exception {
-
-		return dao.getAttach(bno);
-	}
+//	@Override
+//	public List<String> getAttach(Integer bno) throws Exception {
+//
+//		return dao.getAttach(bno);
+//	}
 	
-	//±ÛÀÛ¼º
+	//ï¿½ï¿½ï¿½Û¼ï¿½
 	@Transactional
 	@Override
 	public void write(BoardVO board) throws Exception {
@@ -43,14 +45,14 @@ public class BoardServiceImpl implements BoardService {
 //		}
 	}
 
-	//Á¶È¸¼ö,»ó¼¼ÆäÀÌÁö
+	//ï¿½ï¿½È¸ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	@Transactional(isolation = Isolation.READ_COMMITTED)
 	@Override
 	public BoardVO read(Integer boardNo) throws Exception {
 		dao.updateViewCnt(boardNo);
 		return dao.read(boardNo);
 	}
-	//¼öÁ¤
+	//ï¿½ï¿½ï¿½ï¿½
 	@Transactional
 	@Override
 	public void modify(BoardVO board) throws Exception {
@@ -71,41 +73,28 @@ public class BoardServiceImpl implements BoardService {
 //		}
 	}
 
-	//»èÁ¦
+	//ï¿½ï¿½ï¿½ï¿½
 	@Override
 	public void remove(Integer bno) throws Exception {
 //		dao.deleteAttach(bno);
 		dao.delete(bno);
 	}
-	//¸ñ·Ï
+	//ï¿½ï¿½ï¿½
 	@Override
 	public List<BoardVO> listAll() throws Exception {
 		return dao.listAll();
 	}
 
+	@Override
+	public List<BoardVO> listSearchCriteria(SearchCriteria cri) throws Exception {
 
-//	@Override
-//	public List<BoardVO> listCriteria(Criteria cri) throws Exception {
-//
-//		return dao.listCriteria(cri);
-//	}
-//
-//	@Override
-//	public int listCountCriteria(Criteria cri) throws Exception {
-//
-//		return dao.countPaging(cri);
-//	}
-//
-//	@Override
-//	public List<BoardVO> listSearchCriteria(SearchCriteria cri) throws Exception {
-//
-//		return dao.listSearch(cri);
-//	}
-//
-//	@Override
-//	public int listSearchCount(SearchCriteria cri) throws Exception {
-//
-//		return dao.listSearchCount(cri);
-//	}
+		return dao.listSearch(cri);
+	}
+
+	@Override
+	public int listSearchCount(SearchCriteria cri) throws Exception {
+
+		return dao.listSearchCount(cri);
+	}
 
 }

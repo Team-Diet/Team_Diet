@@ -2,11 +2,12 @@ package com.diet.service;
 
 import java.util.List;
 
-
 /*import org.zerock.domain.Criteria;
 import org.zerock.domain.SearchCriteria;*/
 
 import com.diet.domain.BoardVO;
+import com.diet.domain.Criteria;
+import com.diet.domain.SearchCriteria;
 
 public interface BoardService {
 
@@ -20,14 +21,10 @@ public interface BoardService {
 
 	public List<BoardVO> listAll() throws Exception;
 
-//	public List<BoardVO> listCriteria(Criteria cri) throws Exception;
-//
-//	public int listCountCriteria(Criteria cri) throws Exception;
-//
-//	public List<BoardVO> listSearchCriteria(SearchCriteria cri) throws Exception;
-//
-//	public int listSearchCount(SearchCriteria cri) throws Exception;
+	public List<BoardVO> listSearchCriteria(SearchCriteria cri) throws Exception;
+
+	public int listSearchCount(SearchCriteria cri) throws Exception;
 	
-	public List<String> getAttach(Integer bno)throws Exception;
+//	public List<String> getAttach(Integer bno)throws Exception;
 
 }

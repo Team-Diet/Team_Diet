@@ -11,13 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-//import org.zerock.domain.Criteria;
-//import org.zerock.domain.PageMaker;
 
 import com.diet.domain.BoardVO;
-import com.diet.dto.LoginDTO;
+import com.diet.domain.Criteria;
+import com.diet.domain.PageMaker;
+import com.diet.domain.SearchCriteria;
 import com.diet.service.BoardService;
-import com.diet.service.ScheduleService;
 
 @Controller
 @RequestMapping("/board/*")
@@ -27,9 +26,7 @@ public class BoardController {
 
 	@Inject
 	private BoardService service;
-	@Inject
-	private ScheduleService Sservice;
-	
+
 	@RequestMapping(value = "/write", method = RequestMethod.GET)
 	public void registerGET(BoardVO board, Model model) throws Exception {
 
@@ -62,24 +59,25 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 	// 목록
-	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public void listAll(Model model) throws Exception {
-		logger.info("show all list......................");
-		model.addAttribute("list", service.listAll());
-	}
-	// schedule
-	
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	  public void loginGET(@ModelAttribute("dto") LoginDTO dto) {
-		  System.out.println("checking2");
+	  @RequestMapping(value = "/list", method = RequestMethod.GET)
+	  public void listPage(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
+
+	    logger.info(cri.toString());
+
+	    model.addAttribute("list", service.listSearchCriteria(cri));
+
+	    PageMaker pageMaker = new PageMaker();
+	    pageMaker.setCri(cri);
+
+	    pageMaker.setTotalCount(service.listSearchCount(cri));
+
+	    model.addAttribute("pageMaker", pageMaker);
 	  }
-	
-	
+	// schedule
 	@RequestMapping(value = "/schedule", method = RequestMethod.GET)
-	public void schedule(@RequestParam("userno") int userno,Model model) throws Exception {
+	public void schedule(Model model) throws Exception {
 		logger.info("show schedule......................");
-		logger.info("Userno 값 : "+userno);
-		model.addAttribute("schedule", Sservice.chart_daytoday(userno));
+		model.addAttribute("schedule", service.listAll());
 	}
 	
 	// 상세페이지
@@ -116,28 +114,6 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 
-//	@RequestMapping(value = "/listCri", method = RequestMethod.GET)
-//	public void listAll(Criteria cri, Model model) throws Exception {
-//
-//		logger.info("show list Page with Criteria......................");
-//
-//		model.addAttribute("list", service.listCriteria(cri));
-//	}
-//
-//	@RequestMapping(value = "/listPage", method = RequestMethod.GET)
-//	public void listPage(@ModelAttribute("cri") Criteria cri, Model model) throws Exception {
-//
-//		logger.info(cri.toString());
-//
-//		model.addAttribute("list", service.listCriteria(cri));
-//		PageMaker pageMaker = new PageMaker();
-//		pageMaker.setCri(cri);
-////		pageMaker.setTotalCount(3000);
-//
-//		pageMaker.setTotalCount(service.listCountCriteria(cri));
-//
-//		model.addAttribute("pageMaker", pageMaker);
-//	}
 //
 //	@RequestMapping(value = "/readPage", method = RequestMethod.GET)
 //	public void read(@RequestParam("bno") int bno, @ModelAttribute("cri") Criteria cri, Model model) throws Exception {
