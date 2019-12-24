@@ -16,7 +16,7 @@ public interface BoardDAO {
 
 	public void update(BoardVO vo) throws Exception;
 
-//	public void updateReplyCnt(Integer bno, int amount) throws Exception;
+	public void updateReplyCnt(Integer bno, int amount) throws Exception;
 
 	public void updateViewCnt(Integer bno) throws Exception;
 

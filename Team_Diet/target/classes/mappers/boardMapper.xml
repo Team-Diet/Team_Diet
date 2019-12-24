@@ -4,8 +4,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.diet.mapper.boardMapper">
-	<!-- <update id="updateReplyCnt"> update tbl_board set replycnt= replycnt 
-		+ #{amount} where bno = #{bno} </update> -->
+	<update id="updateReplyCnt"> update tbl_board set replycnt= replycnt 
+		+ #{amount} where bno = #{bno} </update>
 
 	<!-- 목록 -->
 	<select id="listAll" resultType="com.diet.domain.BoardVO">

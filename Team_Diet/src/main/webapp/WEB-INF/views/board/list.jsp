@@ -66,7 +66,7 @@
 						Content OR Writer</option>
 					<option value="tcw"
 						<c:out value="${cri.searchType eq 'tcw'?'selected':''}"/>>
-						Title OR Content OR Writer</option>
+						All</option>
 				</select> <input type="text" name='keyword' id="keywordInput"
 					value='${cri.keyword }'>
 				<button id='searchBtn'>Search</button>

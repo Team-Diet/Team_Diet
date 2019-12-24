@@ -3,6 +3,7 @@ encoding//src/main/java/com/diet/ex/BoardController.java=UTF-8
 encoding//src/main/java/com/diet/persistence/BoardDAOImpl.java=UTF-8
 encoding//src/main/java/com/diet/persistence/ScheduleDAOImpl.java=UTF-8
 encoding//src/main/webapp/WEB-INF/views/board/board.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/board/read.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/board/schedule.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/board/write.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/index.jsp=UTF-8
