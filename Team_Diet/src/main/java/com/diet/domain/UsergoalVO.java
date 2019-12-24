@@ -2,13 +2,14 @@ package com.diet.domain;
 
 import java.util.Date;
 
-public class BarchartVO2 {
+public class UsergoalVO {
 	private Integer userno;
 	private Integer morning;
 	private Integer afternoon;
 	private Integer evening;
 	private Integer snack;
 	private Integer midnight;
+	private Date today;
 	public Integer getUserno() {
 		return userno;
 	}
@@ -45,15 +46,17 @@ public class BarchartVO2 {
 	public void setMidnight(Integer midnight) {
 		this.midnight = midnight;
 	}
+	public Date getToday() {
+		return today;
+	}
+	public void setToday(Date today) {
+		this.today = today;
+	}
 	@Override
 	public String toString() {
-		return "BarchartVO2 [userno=" + userno + ", morning=" + morning + ", afternoon=" + afternoon + ", evening="
-				+ evening + ", snack=" + snack + ", midnight=" + midnight + "]";
+		return "UsergoalVO [userno=" + userno + ", morning=" + morning + ", afternoon=" + afternoon + ", evening="
+				+ evening + ", snack=" + snack + ", midnight=" + midnight + ", today=" + today + "]";
 	}
-	
-	
-	
-	
 	
 	
 	

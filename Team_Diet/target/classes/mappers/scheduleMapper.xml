@@ -21,5 +21,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="readchart" resultType="com.diet.domain.BarchartVO2">
 		select morning,afternoon,evening,snack,midnight from member_eat2 where userno=#{userNo}
 	</select>
-
+	
+	<select id="readgoal" resultType="com.diet.domain.UsergoalVO">
+		select morning,afternoon,evening,snack,midnight from member_goal where userno=#{userno} and today=to_char(sysdate, 'YYYY-MM-DD')
+	</select>
 </mapper>

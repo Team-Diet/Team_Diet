@@ -156,8 +156,15 @@
 			}
 		});
 		
-		
-		
+		//내 섭취량 선언
+		var morning = ${schedule.morning};
+		var afternoon =${schedule.afternoon};var evening = ${schedule.evening};var snack = ${schedule.snack};var midnight = ${schedule.midnight};
+		//내 목표치 선언
+ 		var morning_goal = ${goal.morning};
+		var afternoon_goal =${goal.afternoon};
+		var evening_goal = ${goal.evening};
+		var snack_goal = ${goal.snack};
+		var midnight_goal = ${goal.midnight}; 
 		var pieChart = new Chart(bar, {
 			type: 'bar',
 			data: {
@@ -166,29 +173,26 @@
 		            label: 'Pass',
 		            backgroundColor: "#1E90FF",
 		            data: [
-		                670,
-		                450,
-		                300,
-		                200,
-		                1500,
+		                morning,
+		                afternoon,
+		                evening,
+		                snack,
+		                midnight,
 		           ]
 		        }, {
 		            label: 'NG',
 		            backgroundColor: "#F7464A",
 		            data: [
-		            	570,
-		                350,
-		                200,
-		                100,
-		                1400,
+		            	morning_goal,
+		            	afternoon_goal,
+		            	evening_goal,
+		            	snack_goal,
+		            	midnight_goal,
 		            ]
 		        }]
 			}
 		});
 	////////////////////////////////////
-	//기초대사량 구하는 공식 = 
-	//남자 : 66.47+(13.75*체중)+(5*키)-(6.76*나이)
-	//여자 : 655.1+(9.56*체중)+(1.85*키)-(4.68*나이)
 	
 </script>
 </body>

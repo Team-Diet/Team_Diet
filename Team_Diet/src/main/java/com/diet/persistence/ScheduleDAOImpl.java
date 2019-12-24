@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 
 import com.diet.domain.BarchartVO2;
 import com.diet.domain.BoardVO;
+import com.diet.domain.UsergoalVO;
 
 @Repository
 public class ScheduleDAOImpl implements ScheduleDAO {
@@ -29,6 +30,12 @@ public class ScheduleDAOImpl implements ScheduleDAO {
 		session.selectOne(namespace + ".car", userNo);
 		return session.selectOne(namespace + ".readchart", userNo);
 	
+	}
+	
+	//일별 섭취 목표
+	@Override
+	public UsergoalVO chart_goal(Integer userno) throws Exception{
+		return session.selectOne(namespace + ".readgoal", userno);
 	}
 	
 	

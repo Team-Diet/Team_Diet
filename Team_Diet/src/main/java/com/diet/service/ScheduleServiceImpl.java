@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.diet.domain.BarchartVO2;
 import com.diet.domain.BoardVO;
+import com.diet.domain.UsergoalVO;
 import com.diet.persistence.BoardDAO;
 import com.diet.persistence.ScheduleDAO;
 
@@ -26,7 +27,12 @@ public class ScheduleServiceImpl implements ScheduleService {
 	public BarchartVO2 chart_daytoday(Integer userno) throws Exception{
 		return dao.chart_daytoday(userno);
 	}
-
+	
+	//일별 섭취 목표
+	@Override
+	public UsergoalVO chart_goal(Integer userno) throws Exception{
+		return dao.chart_goal(userno);
+	}
 		
 
 

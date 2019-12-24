@@ -17,6 +17,7 @@ import com.diet.domain.Criteria;
 import com.diet.domain.PageMaker;
 import com.diet.domain.SearchCriteria;
 import com.diet.service.BoardService;
+import com.diet.service.ScheduleService;
 
 @Controller
 @RequestMapping("/board/*")
@@ -26,6 +27,8 @@ public class BoardController {
 
 	@Inject
 	private BoardService service;
+	@Inject
+	private ScheduleService Sservice;
 
 	@RequestMapping(value = "/write", method = RequestMethod.GET)
 	public void registerGET(BoardVO board, Model model) throws Exception {
@@ -73,12 +76,15 @@ public class BoardController {
 
 	    model.addAttribute("pageMaker", pageMaker);
 	  }
+	  
 	// schedule
-	@RequestMapping(value = "/schedule", method = RequestMethod.GET)
-	public void schedule(Model model) throws Exception {
-		logger.info("show schedule......................");
-		model.addAttribute("schedule", service.listAll());
-	}
+	  @RequestMapping(value = "/schedule", method = RequestMethod.GET)
+		public void schedule(@RequestParam("userno") int userno,Model model) throws Exception {
+			logger.info("show schedule......................");
+			logger.info("Userno 값 : "+userno);
+			model.addAttribute("schedule", Sservice.chart_daytoday(userno));
+			model.addAttribute("goal", Sservice.chart_goal(userno));
+		}
 	
 	// 상세페이지
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
