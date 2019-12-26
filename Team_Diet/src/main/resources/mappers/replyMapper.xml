@@ -16,12 +16,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<insert id="create">
-		insert into diet_reply (replyNo, boardNo, replytext, replyer)
-		values (seq_reply.nextval, #{boardNo},#{replytext},#{replyer})
+		insert into diet_reply (replyNo, boardNo, replyText, replyer)
+		values (seq_reply.nextval, #{boardNo},#{replyText},#{replyer})
 	</insert>
 
 	<update id="update">
-		update diet_reply set replytext = #{replytext},
+		update diet_reply set replyText = #{replyText},
 		updatedate = sysdate
 		where replyNo = #{replyNo}
 	</update>
@@ -33,11 +33,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="listPage" resultType="ReplyVO">
 		<![CDATA[
 		select
-		replyNo, boardNo, replytext, replyer, writedate, updatedate
+		replyNo, boardNo, replyText, replyer, writedate, updatedate
 		from
 		(
 		select /*+INDEX_DESC(diet_reply pk_reply))*/
-		rownum rn, replyNo, boardNo, replytext, replyer, writedate, updatedate
+		rownum rn, replyNo, boardNo, replyText, replyer, writedate, updatedate
 		from diet_reply
 		where boardNo = #{boardNo}
 		and replyNo > 0

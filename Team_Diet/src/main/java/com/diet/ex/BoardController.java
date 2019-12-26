@@ -86,12 +86,7 @@ public class BoardController {
 			model.addAttribute("goal", Sservice.chart_goal(userno));
 		}
 	
-	// 상세페이지
-	@RequestMapping(value = "/read", method = RequestMethod.GET)
-	public void read(@RequestParam("boardNo") int boardNo, Model model) throws Exception {
 
-		model.addAttribute("read",service.read(boardNo));
-	}
 	// 삭제
 	@RequestMapping(value = "/remove", method = RequestMethod.POST)
 	public String remove(@RequestParam("boardNo") int boardno, RedirectAttributes rttr) throws Exception {
@@ -119,13 +114,18 @@ public class BoardController {
 
 		return "redirect:/board/list";
 	}
-
+	
+//	@RequestMapping(value = "/read", method = RequestMethod.GET)
+//	public void read(@RequestParam("boardNo") int boardNo, Model model) throws Exception {
 //
-//	@RequestMapping(value = "/readPage", method = RequestMethod.GET)
-//	public void read(@RequestParam("bno") int bno, @ModelAttribute("cri") Criteria cri, Model model) throws Exception {
-//
-//		model.addAttribute(service.read(bno));
+//		model.addAttribute("read",service.read(boardNo));
 //	}
+	// 상세페이지
+	@RequestMapping(value = "/read", method = RequestMethod.GET)
+	public void read(@RequestParam("boardNo") int boardNo, @ModelAttribute("cri") Criteria cri, Model model) throws Exception {
+
+		model.addAttribute(service.read(boardNo));
+	}
 //
 //	@RequestMapping(value = "/removePage", method = RequestMethod.POST)
 //	public String remove(@RequestParam("bno") int bno, Criteria cri, RedirectAttributes rttr) throws Exception {

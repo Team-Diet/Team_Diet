@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+ pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
@@ -10,13 +12,8 @@
 <title>Board</title>
 <link rel="stylesheet" href="/resources/css/style.css">
 <link href="/resources/css/modal.css" rel="stylesheet">
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-	crossorigin="anonymous">
-<link
-	href="https://fonts.googleapis.com/css?family=Gamja+Flower&display=swap"
-	rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Gamja+Flower&display=swap" rel="stylesheet">
 </head>
 
 <!-- " -->
@@ -34,11 +31,11 @@
 	<div class="wrap">
 					<form role="form" action="modifyPage" method="post">
 
-					<input type='hidden' name='boardNo' value="${boardVO.boardNo}"> <input
-						type='hidden' name='page' value="${cri.page}"> <input
-						type='hidden' name='perPageNum' value="${cri.perPageNum}">
-					<input type='hidden' name='searchType' value="${cri.searchType}">
-					<input type='hidden' name='keyword' value="${cri.keyword}">
+					<input type='hidden' name='boardNo' value="${read.boardNo}"> <input
+						type='hidden' name='page' value="${read.page}"> <input
+						type='hidden' name='perPageNum' value="${read.perPageNum}">
+					<input type='hidden' name='searchType' value="${read.searchType}">
+					<input type='hidden' name='keyword' value="${read.keyword}">
 
 				</form>
 		<div class="container" style="padding-top: 50px; padding-bottom: 50px">
@@ -68,10 +65,8 @@
 					<button type="submit" class="btn btn-sm bg-mr remo">REMOVE</button>
 					<button type="submit" class="btn btn-sm bg-mr lial">LIST</button>
 				</div>
-			</div>
-		</div>
-		<div class="row">
-		<div class="col-md-12">
+									<div class="row text-center">
+		<div class="col-12">
 
 			<div class="box box-success">
 				<div class="box-header">
@@ -109,11 +104,13 @@
 		</div>
 		<!-- /.col -->
 	</div>
+			</div>
+
+		</div>
+
 	</div>
 
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-		crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
 		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
@@ -123,7 +120,9 @@
 		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
 		crossorigin="anonymous"></script>
 	<script src="/resources/js/weather.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 	<script id="template" type="text/x-handlebars-template">
+
 {{#each .}}
 <li class="replyLi" data-replyNo={{replyNo}}>
 <i class="fa fa-comments bg-blue"></i>
@@ -132,7 +131,7 @@
     <i class="fa fa-clock-o"></i>{{prettifyDate writeDate}}
   </span>
   <h3 class="timeline-header"><strong>{{replyNo}}</strong> -{{replyer}}</h3>
-  <div class="timeline-body">{{replytext}} </div>
+  <div class="timeline-body">{{replyText}} </div>
     <div class="timeline-footer">
      <a class="btn btn-primary btn-xs" 
 	    data-toggle="modal" data-target="#modifyModal">Modify</a>
@@ -143,14 +142,14 @@
 </script>
 
 <script>
-	Handlebars.registerHelper("prettifyDate", function(timeValue) {
+Handlebars.registerHelper("prettifyDate", function(timeValue) {
 		var dateObj = new Date(timeValue);
 		var year = dateObj.getFullYear();
 		var month = dateObj.getMonth() + 1;
 		var date = dateObj.getDate();
 		return year + "/" + month + "/" + date;
 	});
-
+	
 	var printData = function(replyArr, target, templateObject) {
 
 		var template = Handlebars.compile(templateObject.html());
@@ -162,7 +161,7 @@
 	}
 
 	var boardNo = ${boardVO.boardNo};
-	
+	/* ${boardVO.boardNo} */
 	var replyPage = 1;
 
 	function getPage(pageInfo) {
@@ -226,7 +225,7 @@
 		 var replyerObj = $("#newReplyWriter");
 		 var replytextObj = $("#newReplyText");
 		 var replyer = replyerObj.val();
-		 var replytext = replytextObj.val();
+		 var replyText = replytextObj.val();
 		
 		  
 		  $.ajax({
@@ -236,7 +235,7 @@
 				      "Content-Type": "application/json",
 				      "X-HTTP-Method-Override": "POST" },
 				dataType:'text',
-				data: JSON.stringify({boardNo:boardNo, replyer:replyer, replytext:replytext}),
+				data: JSON.stringify({boardNo:boardNo, replyer:replyer, replyText:replyText}),
 				success:function(result){
 					console.log("result: " + result);
 					if(result == 'SUCCESS'){
@@ -254,7 +253,7 @@
 		
 		var reply = $(this);
 		
-		$("#replytext").val(reply.find('.timeline-body').text());
+		$("#replyText").val(reply.find('.timeline-body').text());
 		$(".modal-title").html(reply.attr("data-replyNo"));
 		
 	});
@@ -272,7 +271,7 @@
 				headers: { 
 				      "Content-Type": "application/json",
 				      "X-HTTP-Method-Override": "PUT" },
-				data:JSON.stringify({replytext:replytext}), 
+				data:JSON.stringify({replyText:replyText}), 
 				dataType:'text', 
 				success:function(result){
 					console.log("result: " + result);
@@ -286,7 +285,7 @@
 	$("#replyDelBtn").on("click",function(){
 		  
 		  var replyNo = $(".modal-title").html();
-		  var replytext = $("#replytext").val();
+		  var replyText = $("#replyText").val();
 		  
 		  $.ajax({
 				type:'delete',

@@ -14,7 +14,14 @@ public class BoardVO {
 	private Integer step;
 	private Integer indent;
 	private Date writeDate;
+	private Integer replyCnt;
 	
+	public Integer getReplyCnt() {
+		return replyCnt;
+	}
+	public void setReplyCnt(Integer replyCnt) {
+		this.replyCnt = replyCnt;
+	}
 	public Integer getUserNo() {
 		return userNo;
 	}
@@ -79,8 +86,8 @@ public class BoardVO {
 	@Override
 	public String toString() {
 		return "BoardVO [userNo=" + userNo + ", boardNo=" + boardNo + ", title=" + title + ", writer=" + writer
-				+ ", content=" + content + ", viewCnt=" + viewCnt + ", bGroup=" + bGroup + ", step=" + step + ", indent="
-				+ indent + ", writeDate=" + writeDate + "]";
+				+ ", content=" + content + ", viewCnt=" + viewCnt + ", bGroup=" + bGroup + ", step=" + step
+				+ ", indent=" + indent + ", writeDate=" + writeDate + ", replyCnt=" + replyCnt + "]";
 	}
 
 }
