@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
- pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
@@ -12,8 +12,11 @@
 <title>Board</title>
 <link rel="stylesheet" href="/resources/css/style.css">
 <link href="/resources/css/modal.css" rel="stylesheet">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-<link href="https://fonts.googleapis.com/css?family=Gamja+Flower&display=swap" rel="stylesheet">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link
+	href="https://fonts.googleapis.com/css?family=Gamja+Flower&display=swap"
+	rel="stylesheet">
 </head>
 
 <!-- " -->
@@ -29,15 +32,15 @@
 		</div>
 	</header>
 	<div class="wrap">
-					<form role="form" action="modifyPage" method="post">
+		<form role="form" action="modifyPage" method="post">
 
-					<input type='hidden' name='boardNo' value="${boardVO.boardNo}"> <input
-						type='hidden' name='page' value="${read.page}"> <input
-						type='hidden' name='perPageNum' value="${read.perPageNum}">
-					<input type='hidden' name='searchType' value="${read.searchType}">
-					<input type='hidden' name='keyword' value="${read.keyword}">
+			<input type='hidden' name='boardNo' value="${boardVO.boardNo}">
+			<input type='hidden' name='page' value="${read.page}"> <input
+				type='hidden' name='perPageNum' value="${read.perPageNum}">
+			<input type='hidden' name='searchType' value="${read.searchType}">
+			<input type='hidden' name='keyword' value="${read.keyword}">
 
-				</form>
+		</form>
 		<div class="container" style="padding-top: 50px; padding-bottom: 50px">
 			<div class="container-fluid">
 				<form role="form" method="post">
@@ -65,69 +68,65 @@
 					<button type="submit" class="btn btn-sm bg-mr remo">REMOVE</button>
 					<button type="submit" class="btn btn-sm bg-mr lial">LIST</button>
 				</div>
-									<div class="row text-center">
-		<div class="col-12">
 
-			<div class="box box-success">
-				<div class="box-header">
-					<h3 class="box-title">ADD NEW REPLY</h3>
-				</div>
-				<div class="box-body">
-					<label for="exampleInputEmail1">Writer</label> <input
-						class="form-control" type="text" placeholder="USER ID"
-						id="newReplyWriter"> <label for="exampleInputEmail1">Reply
-						Text</label> <input class="form-control" type="text"
-						placeholder="REPLY TEXT" id="newReplyText">
-
-				</div>
-				<!-- /.box-body -->
-				<div class="box-footer">
-					<button type="button" class="btn btn-primary" id="replyAddBtn">ADD
-						REPLY</button>
-				</div>
-			</div>
-
-
-			<!-- The time line -->
-			<ul class="timeline">
-				<!-- timeline time label -->
-				<li class="time-label" id="repliesDiv"><span class="bg-green">
-						Replies List </span></li>
-			</ul>
-
-			<div class='text-center'>
-				<ul id="pagination" class="pagination pagination-sm no-margin ">
-
-				</ul>
-			</div>
-
-		</div>
-		<!-- /.col -->
-	</div>
-	<!-- Modal -->
-<div id="modifyModal" class="modal modal-primary fade" role="dialog">
-  <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title"></h4>
-      </div>
-<%--       <div class="modal-body" data-rno>
+				<!-- Modal -->
+				<div id="modifyModal" class="modal modal-primary fade" role="dialog">
+					<div class="modal-dialog">
+						<!-- Modal content-->
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+								<h4 class="modal-title"></h4>
+							</div>
+							<%--       <div class="modal-body" data-rno>
         <p><input type="text" id="replytext" class="form-control" value='${login.userid }' readonly></p>
       </div> --%>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-info" id="replyModBtn">Modify</button>
-        <button type="button" class="btn btn-danger" id="replyDelBtn">DELETE</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>      
+							<div class="modal-footer">
+								<button type="button" class="btn btn-info" id="replyModBtn">Modify</button>
+								<button type="button" class="btn btn-danger" id="replyDelBtn">DELETE</button>
+								<button type="button" class="btn btn-default"
+									data-dismiss="modal">Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 
 		</div>
+		<div class="container" >
+			<div class="col-12 text-center">
+				<div class="box box-success">
+					<div class="box-header">
+						<p class="box-title">ADD NEW REPLY</p>
+					</div>
+					<div class="row" style="padding-left:15px; padding-right:15px">
+						<input
+							class="form-control col-1 mr-2" type="text" placeholder="USER ID"
+							id="newReplyWriter"><input class="form-control col-9" style="margin: 0px 10px;"type="text"
+							placeholder="REPLY TEXT" id="newReplyText">
+						<button type="button" class="btn btn-sm bg-mr p-2 col-1" style="margin-left:auto;"id="replyAddBtn">ADD</button>
+					</div>
+					<!-- /.box-body -->
 
+				</div>
+
+
+				<!-- The time line -->
+				<ul class="timeline">
+					<!-- timeline time label -->
+					<li class="time-label" id="repliesDiv"><span class="bg-green">
+							Replies List </span></li>
+				</ul>
+
+				<div class='text-center'>
+					<ul id="pagination" class="pagination pagination-sm no-margin ">
+
+					</ul>
+				</div>
+
+			</div>
+			<!-- /.col -->
+		</div>
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -140,191 +139,192 @@
 		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
 		crossorigin="anonymous"></script>
 	<script src="/resources/js/weather.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 	<script id="template" type="text/x-handlebars-template">
-
 {{#each .}}
 <li class="replyLi" data-replyNo={{replyNo}}>
 <i class="fa fa-comments bg-blue"></i>
- <div class="timeline-item" >
-  <span class="time">
-    <i class="fa fa-clock-o"></i>{{prettifyDate writeDate}}
-  </span>
-  <h3 class="timeline-header"><strong>{{replyNo}}</strong> -{{replyer}}</h3>
-  <div class="timeline-body">{{replyText}} </div>
-    <div class="timeline-footer">
-     <a class="btn btn-primary btn-xs" 
+ <div class="timeline-item container text-left border border-secondary rounded">
+<span class="timeline-header"><strong>{{replyer}}</strong></span>
+<span class="time"><small><small> {{prettifyDate writeDate}} </small></small></span>
+     <a class="btn btn-sm bg-mr float-right mt-2" 
 	    data-toggle="modal" data-target="#modifyModal">Modify</a>
-    </div>
+<p class="timeline-body ml-4">{{replyText}} </p>  
   </div>			
 </li>
 {{/each}}
 </script>
 
-<script>
-Handlebars.registerHelper("prettifyDate", function(timeValue) {
-		var dateObj = new Date(timeValue);
-		var year = dateObj.getFullYear();
-		var month = dateObj.getMonth() + 1;
-		var date = dateObj.getDate();
-		return year + "/" + month + "/" + date;
-	});
-	
-	var printData = function(replyArr, target, templateObject) {
+	<script>
+		Handlebars.registerHelper("prettifyDate", function(timeValue) {
+			var dateObj = new Date(timeValue);
+			var year = dateObj.getFullYear();
+			var month = dateObj.getMonth() + 1;
+			var date = dateObj.getDate();
+			return year + "/" + month + "/" + date;
+		});
 
-		var template = Handlebars.compile(templateObject.html());
+		var printData = function(replyArr, target, templateObject) {
 
-		var html = template(replyArr);
-		$(".replyLi").remove();
-		target.after(html);
+			var template = Handlebars.compile(templateObject.html());
 
-	}
+			var html = template(replyArr);
+			$(".replyLi").remove();
+			target.after(html);
 
-	var boardNo = ${boardVO.boardNo};
-	/* ${boardVO.boardNo} */
-	var replyPage = 1;
+		}
 
-	function getPage(pageInfo) {
+		var boardNo = ${boardVO.boardNo};
+		/* ${boardVO.boardNo} */
+		var replyPage = 1;
 
-		$.getJSON(pageInfo, function(data) {
-			printData(data.list, $("#repliesDiv"), $('#template'));
-			printPaging(data.pageMaker, $(".pagination"));
+		function getPage(pageInfo) {
 
-			$("#modifyModal").modal('hide');
+			$.getJSON(pageInfo, function(data) {
+				printData(data.list, $("#repliesDiv"), $('#template'));
+				printPaging(data.pageMaker, $(".pagination"));
+
+				$("#modifyModal").modal('hide');
+
+			});
+		}
+
+		var printPaging = function(pageMaker, target) {
+
+			var str = "";
+
+			if (pageMaker.prev) {
+				str += "<li><a href='" + (pageMaker.startPage - 1)
+						+ "'> << </a></li>";
+			}
+
+			for (var i = pageMaker.startPage, len = pageMaker.endPage; i <= len; i++) {
+				var strClass = pageMaker.cri.page == i ? 'class=active' : '';
+				str += "<li "+strClass+"><a href='"+i+"'>" + i + "</a></li>";
+			}
+
+			if (pageMaker.next) {
+				str += "<li><a href='" + (pageMaker.endPage + 1)
+						+ "'> >> </a></li>";
+			}
+
+			target.html(str);
+		};
+
+		$("#repliesDiv").on("click", function() {
+
+			if ($(".timeline li").length > 1) {
+				return;
+			}
+			getPage("/replies/" + boardNo + "/1");
 
 		});
-	}
 
-	var printPaging = function(pageMaker, target) {
+		$(".pagination").on("click", "li a", function(event) {
 
-		var str = "";
+			event.preventDefault();
 
-		if (pageMaker.prev) {
-			str += "<li><a href='" + (pageMaker.startPage - 1)
-					+ "'> << </a></li>";
-		}
+			replyPage = $(this).attr("href");
 
-		for (var i = pageMaker.startPage, len = pageMaker.endPage; i <= len; i++) {
-			var strClass = pageMaker.cri.page == i ? 'class=active' : '';
-			str += "<li "+strClass+"><a href='"+i+"'>" + i + "</a></li>";
-		}
+			getPage("/replies/" + boardNo + "/" + replyPage);
 
-		if (pageMaker.next) {
-			str += "<li><a href='" + (pageMaker.endPage + 1)
-					+ "'> >> </a></li>";
-		}
+		});
 
-		target.html(str);
-	};
+		//리플
+		$("#replyAddBtn").on("click", function() {
 
-	$("#repliesDiv").on("click", function() {
+			var replyerObj = $("#newReplyWriter");
+			var replytextObj = $("#newReplyText");
+			var replyer = replyerObj.val();
+			var replyText = replytextObj.val();
 
-		if ($(".timeline li").length > 1) {
-			return;
-		}
-		getPage("/replies/" + boardNo + "/1");
-
-	});
-	
-
-	$(".pagination").on("click", "li a", function(event){
-		
-		event.preventDefault();
-		
-		replyPage = $(this).attr("href");
-		
-		getPage("/replies/"+boardNo+"/"+replyPage);
-		
-	});
-	
-
-	
-	//리플
-	$("#replyAddBtn").on("click",function(){
-		 
-		 var replyerObj = $("#newReplyWriter");
-		 var replytextObj = $("#newReplyText");
-		 var replyer = replyerObj.val();
-		 var replyText = replytextObj.val();
-		
-		  
-		  $.ajax({
-				type:'post',
-				url:'/replies/',
-				headers: { 
-				      "Content-Type": "application/json",
-				      "X-HTTP-Method-Override": "POST" },
-				dataType:'text',
-				data: JSON.stringify({boardNo:boardNo, replyer:replyer, replyText:replyText}),
-				success:function(result){
+			$.ajax({
+				type : 'post',
+				url : '/replies/',
+				headers : {
+					"Content-Type" : "application/json",
+					"X-HTTP-Method-Override" : "POST"
+				},
+				dataType : 'text',
+				data : JSON.stringify({
+					boardNo : boardNo,
+					replyer : replyer,
+					replyText : replyText
+				}),
+				success : function(result) {
 					console.log("result: " + result);
-					if(result == 'SUCCESS'){
+					if (result == 'SUCCESS') {
 						alert("등록 되었습니다.");
 						replyPage = 1;
-						getPage("/replies/"+boardNo+"/"+replyPage );
+						getPage("/replies/" + boardNo + "/" + replyPage);
 						replyerObj.val("");
 						replytextObj.val("");
 					}
-			}});
-	});
-	//
+				}
+			});
+		});
+		//
 
-	$(".timeline").on("click", ".replyLi", function(event){
-		
-		var reply = $(this);
-		
-		$("#replyText").val(reply.find('.timeline-body').text());
-		$(".modal-title").html(reply.attr("data-replyNo"));
-		
-	});
-	
-	
+		$(".timeline").on("click", ".replyLi", function(event) {
 
-	$("#replyModBtn").on("click",function(){
-		  
-		  var replyNo = $(".modal-title").html();
-		  var replytext = $("#replytext").val();
-		  
-		  $.ajax({
-				type:'put',
-				url:'/replies/'+replyNo,
-				headers: { 
-				      "Content-Type": "application/json",
-				      "X-HTTP-Method-Override": "PUT" },
-				data:JSON.stringify({replyText:replyText}), 
-				dataType:'text', 
-				success:function(result){
+			var reply = $(this);
+
+			$("#replyText").val(reply.find('.timeline-body').text());
+			$(".modal-title").html(reply.attr("data-replyNo"));
+
+		});
+
+		$("#replyModBtn").on("click", function() {
+
+			var replyNo = $(".modal-title").html();
+			var replytext = $("#replytext").val();
+
+			$.ajax({
+				type : 'put',
+				url : '/replies/' + replyNo,
+				headers : {
+					"Content-Type" : "application/json",
+					"X-HTTP-Method-Override" : "PUT"
+				},
+				data : JSON.stringify({
+					replyText : replyText
+				}),
+				dataType : 'text',
+				success : function(result) {
 					console.log("result: " + result);
-					if(result == 'SUCCESS'){
+					if (result == 'SUCCESS') {
 						alert("수정 되었습니다.");
-						getPage("/replies/"+boardNo+"/"+replyPage );
+						getPage("/replies/" + boardNo + "/" + replyPage);
 					}
-			}});
-	});
+				}
+			});
+		});
 
-	$("#replyDelBtn").on("click",function(){
-		  
-		  var replyNo = $(".modal-title").html();
-		  var replyText = $("#replyText").val();
-		  
-		  $.ajax({
-				type:'delete',
-				url:'/replies/'+replyNo,
-				headers: { 
-				      "Content-Type": "application/json",
-				      "X-HTTP-Method-Override": "DELETE" },
-				dataType:'text', 
-				success:function(result){
+		$("#replyDelBtn").on("click", function() {
+
+			var replyNo = $(".modal-title").html();
+			var replyText = $("#replyText").val();
+
+			$.ajax({
+				type : 'delete',
+				url : '/replies/' + replyNo,
+				headers : {
+					"Content-Type" : "application/json",
+					"X-HTTP-Method-Override" : "DELETE"
+				},
+				dataType : 'text',
+				success : function(result) {
 					console.log("result: " + result);
-					if(result == 'SUCCESS'){
+					if (result == 'SUCCESS') {
 						alert("삭제 되었습니다.");
-						getPage("/replies/"+boardNo+"/"+replyPage );
+						getPage("/replies/" + boardNo + "/" + replyPage);
 					}
-			}});
-	});
-	
-</script>
-	
+				}
+			});
+		});
+	</script>
+
 	<script>
 		$(document).ready(function() {
 
@@ -352,7 +352,7 @@ Handlebars.registerHelper("prettifyDate", function(timeValue) {
 
 		});
 	</script>
-	
+
 	<script id="templateAttach" type="text/x-handlebars-template">
 <li data-src='{{fullName}}'>
   <span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
@@ -361,9 +361,9 @@ Handlebars.registerHelper("prettifyDate", function(timeValue) {
 	</span>
   </div>
 </li>                
-</script>  
+</script>
 
-<!-- <script>
+	<!-- <script>
 $(document).ready(function(){
 	
 	var formObj = $("form[role='form']");
