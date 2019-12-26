@@ -32,9 +32,9 @@ public class ReplyServiceImpl implements ReplyService {
   
 
   @Override
-  public List<ReplyVO> listReply(Integer bno) throws Exception {
+  public List<ReplyVO> listReply(Integer boardNo) throws Exception {
 
-    return dao.list(bno);
+    return dao.list(boardNo);
   }
 
   @Override
@@ -45,25 +45,25 @@ public class ReplyServiceImpl implements ReplyService {
 
   @Transactional
   @Override
-  public void removeReply(Integer rno) throws Exception {
+  public void removeReply(Integer replyNo) throws Exception {
   
-    int bno = dao.getBno(rno);
-    dao.delete(rno);
-    boardDAO.updateReplyCnt(bno, -1);
+    int boardNo = dao.getBoardNo(replyNo);
+    dao.delete(replyNo);
+    boardDAO.updateReplyCnt(boardNo, -1);
   }   
 
 
   @Override
-  public List<ReplyVO> listReplyPage(Integer bno, Criteria cri) 
+  public List<ReplyVO> listReplyPage(Integer boardNo, Criteria cri) 
       throws Exception {
 
-    return dao.listPage(bno, cri);
+    return dao.listPage(boardNo, cri);
   }
 
   @Override
-  public int count(Integer bno) throws Exception {
+  public int count(Integer boardNo) throws Exception {
 
-    return dao.count(bno);
+    return dao.count(boardNo);
   }
   
 

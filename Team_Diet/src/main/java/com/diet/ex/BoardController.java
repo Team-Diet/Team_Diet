@@ -85,18 +85,6 @@ public class BoardController {
 			model.addAttribute("schedule", Sservice.chart_daytoday(userno));
 			model.addAttribute("goal", Sservice.chart_goal(userno));
 		}
-	
-
-	// 삭제
-	@RequestMapping(value = "/remove", method = RequestMethod.POST)
-	public String remove(@RequestParam("boardNo") int boardno, RedirectAttributes rttr) throws Exception {
-
-		service.remove(boardno);
-
-		rttr.addFlashAttribute("msg", "success");
-
-		return "redirect:/board/list";
-	}
 
 	@RequestMapping(value = "/modify", method = RequestMethod.GET)
 	public void modifyGET(int boardNo, Model model) throws Exception {
@@ -126,18 +114,28 @@ public class BoardController {
 
 		model.addAttribute(service.read(boardNo));
 	}
+
+//	@RequestMapping(value = "/remove", method = RequestMethod.POST)
+//	public String remove(@RequestParam("boardNo") int boardno, RedirectAttributes rttr) throws Exception {
 //
-//	@RequestMapping(value = "/removePage", method = RequestMethod.POST)
-//	public String remove(@RequestParam("bno") int bno, Criteria cri, RedirectAttributes rttr) throws Exception {
+//		service.remove(boardno);
 //
-//		service.remove(bno);
-//
-//		rttr.addAttribute("page", cri.getPage());
-//		rttr.addAttribute("perPageNum", cri.getPerPageNum());
 //		rttr.addFlashAttribute("msg", "success");
 //
-//		return "redirect:/board/listPage";
+//		return "redirect:/board/list";
 //	}
+	// 삭제
+	@RequestMapping(value = "/remove", method = RequestMethod.POST)
+	public String remove(@RequestParam("boardNo") int boardNo, Criteria cri, RedirectAttributes rttr) throws Exception {
+
+		service.remove(boardNo);
+
+		rttr.addAttribute("page", cri.getPage());
+		rttr.addAttribute("perPageNum", cri.getPerPageNum());
+		rttr.addFlashAttribute("msg", "success");
+
+		return "redirect:/board/list";
+	}
 //
 //	@RequestMapping(value = "/modifyPage", method = RequestMethod.GET)
 //	public void modifyPagingGET(@RequestParam("bno") int bno, @ModelAttribute("cri") Criteria cri, Model model)

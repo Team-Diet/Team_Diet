@@ -31,7 +31,7 @@
 	<div class="wrap">
 					<form role="form" action="modifyPage" method="post">
 
-					<input type='hidden' name='boardNo' value="${read.boardNo}"> <input
+					<input type='hidden' name='boardNo' value="${boardVO.boardNo}"> <input
 						type='hidden' name='page' value="${read.page}"> <input
 						type='hidden' name='perPageNum' value="${read.perPageNum}">
 					<input type='hidden' name='searchType' value="${read.searchType}">
@@ -41,22 +41,22 @@
 		<div class="container" style="padding-top: 50px; padding-bottom: 50px">
 			<div class="container-fluid">
 				<form role="form" method="post">
-					<input type='hidden' name='boardNo' value="${read.boardNo}">
+					<input type='hidden' name='boardNo' value="${boardVO.boardNo}">
 				</form>
 				<div class="box-body">
 					<div class="form-group">
 						<label for="exampleInputEmail1">Title</label> <input type="text"
-							name='title' class="form-control" value="${read.title}"
+							name='title' class="form-control" value="${boardVO.title}"
 							readonly="readonly">
 					</div>
 					<div class="form-group">
 						<label for="exampleInputPassword1">Content</label>
 						<textarea class="form-control" name="content" rows="3"
-							readonly="readonly">${read.content}</textarea>
+							readonly="readonly">${boardVO.content}</textarea>
 					</div>
 					<div class="form-group">
 						<label for="exampleInputEmail1">Writer</label> <input type="text"
-							name="writer" class="form-control" value="${read.writer}"
+							name="writer" class="form-control" value="${boardVO.writer}"
 							readonly="readonly">
 					</div>
 				</div>
@@ -104,6 +104,26 @@
 		</div>
 		<!-- /.col -->
 	</div>
+	<!-- Modal -->
+<div id="modifyModal" class="modal modal-primary fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"></h4>
+      </div>
+<%--       <div class="modal-body" data-rno>
+        <p><input type="text" id="replytext" class="form-control" value='${login.userid }' readonly></p>
+      </div> --%>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" id="replyModBtn">Modify</button>
+        <button type="button" class="btn btn-danger" id="replyDelBtn">DELETE</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>      
 			</div>
 
 		</div>
@@ -199,7 +219,7 @@ Handlebars.registerHelper("prettifyDate", function(timeValue) {
 
 	$("#repliesDiv").on("click", function() {
 
-		if ($(".timeline li").size() > 1) {
+		if ($(".timeline li").length > 1) {
 			return;
 		}
 		getPage("/replies/" + boardNo + "/1");
@@ -319,6 +339,7 @@ Handlebars.registerHelper("prettifyDate", function(timeValue) {
 			});
 
 			$(".remo").on("click", function() {
+				formObj.attr("method", "post");
 				formObj.attr("action", "/board/remove");
 				formObj.submit();
 			});

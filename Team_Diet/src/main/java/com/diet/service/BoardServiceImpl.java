@@ -22,9 +22,9 @@ public class BoardServiceImpl implements BoardService {
 	private BoardDAO dao;
 	
 //	@Override
-//	public List<String> getAttach(Integer bno) throws Exception {
+//	public List<String> getAttach(Integer boardNo) throws Exception {
 //
-//		return dao.getAttach(bno);
+//		return dao.getAttach(boardNo);
 //	}
 	
 	//���ۼ�
@@ -58,9 +58,9 @@ public class BoardServiceImpl implements BoardService {
 	public void modify(BoardVO board) throws Exception {
 		dao.update(board);
 
-//		Integer bno = board.getBno();
+//		Integer boardNo = board.getboardNo();
 //
-//		dao.deleteAttach(bno);
+//		dao.deleteAttach(boardNo);
 //
 //		String[] files = board.getFiles();
 //
@@ -69,15 +69,15 @@ public class BoardServiceImpl implements BoardService {
 //		}
 //
 //		for (String fileName : files) {
-//			dao.replaceAttach(fileName,bno);
+//			dao.replaceAttach(fileName,boardNo);
 //		}
 	}
 
 	//����
 	@Override
-	public void remove(Integer bno) throws Exception {
-//		dao.deleteAttach(bno);
-		dao.delete(bno);
+	public void remove(Integer boardNo) throws Exception {
+//		dao.deleteAttach(boardNo);
+		dao.delete(boardNo);
 	}
 	//���
 	@Override

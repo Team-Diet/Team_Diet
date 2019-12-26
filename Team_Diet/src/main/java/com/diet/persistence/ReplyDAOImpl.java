@@ -21,9 +21,9 @@ public class ReplyDAOImpl implements ReplyDAO {
   private static String namespace = "com.diet.mapper.ReplyMapper";
 
   @Override
-  public List<ReplyVO> list(Integer bno) throws Exception {
+  public List<ReplyVO> list(Integer boardNo) throws Exception {
 
-    return session.selectList(namespace + ".list", bno);
+    return session.selectList(namespace + ".list", boardNo);
   }
 
   @Override
@@ -39,32 +39,32 @@ public class ReplyDAOImpl implements ReplyDAO {
   }
 
   @Override
-  public void delete(Integer rno) throws Exception {
+  public void delete(Integer replyNo) throws Exception {
 
-    session.update(namespace + ".delete", rno);
+    session.update(namespace + ".delete", replyNo);
   }
 
   @Override
-  public List<ReplyVO> listPage(Integer bno, Criteria cri)
+  public List<ReplyVO> listPage(Integer boardNo, Criteria cri)
       throws Exception {
 
     Map<String, Object> paramMap = new HashMap<>();
 
-    paramMap.put("boardNo", bno);
+    paramMap.put("boardNo", boardNo);
     paramMap.put("cri", cri);
 
     return session.selectList(namespace + ".listPage", paramMap);
   }
 
   @Override
-  public int count(Integer bno) throws Exception {
+  public int count(Integer boardNo) throws Exception {
 
-    return session.selectOne(namespace + ".count", bno);
+    return session.selectOne(namespace + ".count", boardNo);
   }
   @Override
-  public int getBno(Integer rno) throws Exception {
+  public int getBoardNo(Integer replyNo) throws Exception {
 
-    return session.selectOne(namespace + ".getBno", rno);
+    return session.selectOne(namespace + ".getboardNo", replyNo);
   }
   
 }

@@ -17,7 +17,7 @@ public interface BoardService {
 
 	public void modify(BoardVO board) throws Exception;
 
-	public void remove(Integer bno) throws Exception;
+	public void remove(Integer boardNo) throws Exception;
 
 	public List<BoardVO> listAll() throws Exception;
 
@@ -25,6 +25,6 @@ public interface BoardService {
 
 	public int listSearchCount(SearchCriteria cri) throws Exception;
 	
-//	public List<String> getAttach(Integer bno)throws Exception;
+//	public List<String> getAttach(Integer boardNo)throws Exception;
 
 }
